@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class TFCTweaker {
     public static final String MODID = "tfctweaker";
     public static final String NAME = "TFC Tweaker";
-    public static final String VERSION = "1.0.4";
+    public static final String VERSION = "1.0.5";
 
     public static Logger logger;
 
