@@ -6,6 +6,7 @@ import mrthomas20121.tfctweaker.RegistryHandler;
 import net.dries007.tfc.api.types.Metal;
 import net.minecraft.util.ResourceLocation;
 import stanhebben.zenscript.annotations.ZenClass;
+import stanhebben.zenscript.annotations.ZenMethod;
 
 @ModOnly("tfc")
 @ZenClass("mods.tfctweaker.early.metal.MetalBuilder")
@@ -28,26 +29,31 @@ public class MetalBuilder {
         this.usable = usable;
     }
 
+    @ZenMethod
     public MetalBuilder setColor(int color) {
         this.color = color;
         return this;
     }
 
+    @ZenMethod
     public MetalBuilder setTier(int tier) {
         this.tier = Metal.Tier.valueOf(tier);
         return this;
     }
 
+    @ZenMethod
     public MetalBuilder setHeat(float heat) {
         this.specificHeat = heat;
         return this;
     }
 
+    @ZenMethod
     public MetalBuilder setMeltTemp(float meltTemp) {
         this.meltTemp = meltTemp;
         return this;
     }
 
+    @ZenMethod
     public void Build() {
         Metal metal = new Metal(this.name, this.tier, this.usable, this.specificHeat, this.meltTemp, this.color, null, null);
         RegistryHandler.addMetalToBuild(metal);
