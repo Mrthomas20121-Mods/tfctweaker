@@ -1,8 +1,8 @@
 package mrthomas20121.tfctweaker.crafttweaker;
 
-import com.blamejared.mtlib.helpers.InputHelper;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.liquid.ILiquidStack;
+import crafttweaker.api.minecraft.CraftTweakerMC;
 import crafttweaker.api.potions.IPotion;
 import crafttweaker.api.potions.IPotionEffect;
 import net.dries007.tfc.api.capability.food.FoodStatsTFC;
@@ -22,7 +22,7 @@ public class Fluids {
     @ZenMethod
     public static void makeDrinkable(ILiquidStack liquidStack, float thirst)
     {
-        FluidWrapper fluidWrapper = FluidsTFC.getWrapper(InputHelper.getFluid(liquidStack)).with(DrinkableProperty.DRINKABLE, (player) -> {
+        FluidWrapper fluidWrapper = FluidsTFC.getWrapper(CraftTweakerMC.getFluid(liquidStack.getDefinition())).with(DrinkableProperty.DRINKABLE, (player) -> {
             if (player.getFoodStats() instanceof FoodStatsTFC) {
                 ((FoodStatsTFC)player.getFoodStats()).addThirst(thirst);
             }
@@ -32,7 +32,7 @@ public class Fluids {
     @ZenMethod
     public static void makeDrinkable(ILiquidStack liquidStack, float thirst, IPotionEffect potion)
     {
-        FluidsTFC.getWrapper(InputHelper.getFluid(liquidStack)).with(DrinkableProperty.DRINKABLE, (player) -> {
+        FluidsTFC.getWrapper(CraftTweakerMC.getFluid(liquidStack.getDefinition())).with(DrinkableProperty.DRINKABLE, (player) -> {
             if (player.getFoodStats() instanceof FoodStatsTFC) {
                 ((FoodStatsTFC)player.getFoodStats()).addThirst(thirst);
                 player.addPotionEffect(new PotionEffect(getPotion(potion.getPotion().name().toLowerCase()), potion.getDuration(), potion.getAmplifier()));
@@ -43,7 +43,7 @@ public class Fluids {
     @ZenMethod
     public static void makeDrinkable(ILiquidStack liquidStack, float thirst, String potion, int duration, int level)
     {
-        FluidsTFC.getWrapper(InputHelper.getFluid(liquidStack)).with(DrinkableProperty.DRINKABLE, (player) -> {
+        FluidsTFC.getWrapper(CraftTweakerMC.getFluid(liquidStack.getDefinition())).with(DrinkableProperty.DRINKABLE, (player) -> {
             if (player.getFoodStats() instanceof FoodStatsTFC) {
                 ((FoodStatsTFC)player.getFoodStats()).addThirst(thirst);
                 player.addPotionEffect(new PotionEffect(getPotion(potion), duration, level));

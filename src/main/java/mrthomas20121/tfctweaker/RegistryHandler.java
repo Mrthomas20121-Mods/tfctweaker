@@ -3,6 +3,7 @@ package mrthomas20121.tfctweaker;
 import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Metal;
+import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
 import net.dries007.tfc.objects.blocks.wood.BlockSaplingTFC;
@@ -30,10 +31,10 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = TFCTweaker.MODID)
 public class RegistryHandler {
 
-    private static ArrayList<Metal> metals = new ArrayList<>();
+    private static ArrayList<Ore> ores = new ArrayList<>();
 
-    public static void addMetalToBuild(Metal metal) {
-        if(!metals.contains(metal)) metals.add(metal);
+    public static void addOre(Ore ore) {
+        ores.add(ore);
     }
 
     @SubscribeEvent
@@ -45,9 +46,17 @@ public class RegistryHandler {
             if(leave.wood.getRegistryName().getPath().equals("sequoia")) {
                 Tree tree = leave.wood;
                 if(TweakerConfig.BaseConfig.sequoia_sapling) {
-                    event.getDrops().add(new ItemStack(BlockSaplingTFC.get(tree), Constants.RNG.nextFloat() > 0.7f ? 1: 0));
+                    event.getDrops().add(new ItemStack(BlockSaplingTFC.get(tree)));
+                    event.setDropChance(0.35f);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onOrePreRegister(TFCRegistryEvent.RegisterPreBlock<Ore> event) {
+        for(Ore ore: ores) {
+            event.getRegistry().register(ore);
         }
     }
 
@@ -55,12 +64,6 @@ public class RegistryHandler {
     public static void onRegisterRecipesEvent(RegistryEvent.Register<IRecipe> event) {
 
         RecipeHelper.removeRecipe(event.getRegistry(), "minecraft:tnt");
-    }
-
-    public static void onPreRegisterMetal(TFCRegistryEvent.RegisterPreBlock<Metal> event) {
-        for(Metal metal: metals) {
-            event.getRegistry().register(metal);
-        }
     }
 
     @SideOnly(Side.CLIENT)
