@@ -8,9 +8,10 @@ import net.dries007.tfc.api.types.Ore;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.StringUtils;
 import stanhebben.zenscript.annotations.ZenClass;
+import stanhebben.zenscript.annotations.ZenConstructor;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-@ZenClass("mods.tfctweaker.early.Orebuilder")
+@ZenClass("mods.tfctweaker.Orebuilder")
 @ZenRegister
 public class OreBuilder {
 
@@ -20,6 +21,7 @@ public class OreBuilder {
     private double chunkChance = 00D;
     private double panChance = 00D;
 
+    @ZenConstructor
     public OreBuilder() {}
 
     @ZenMethod
