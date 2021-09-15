@@ -11,7 +11,7 @@ plugins {
     java
     idea
     id("net.minecraftforge.gradle") version "4.1.10"
-    id("wtf.gofancy.fancygradle") version "1.0.1"
+    id("wtf.gofancy.fancygradle") version "1.0.0"
 }
 
 version = "1.0.9"
@@ -73,6 +73,10 @@ dependencies {
     implementation(fg.deobf(curse(mod = "rocksalt", projectId = 398969L, fileId = 3419071L)))
 }
 
+sourceSets.main {
+    resources.outputDir = java.outputDir
+}
+
 tasks {
     jar {
         archiveBaseName.set("tfctweaker")
@@ -96,5 +100,15 @@ tasks {
         filesMatching("mcmod.info") {
             expand("version" to project.version,"mcversion" to "1.12.2")
         }
+    }
+
+    withType<JavaCompile> {
+        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+        targetCompatibility = JavaVersion.VERSION_1_8.toString()
+    }
+
+    withType<Wrapper> {
+        gradleVersion = "6.8.3"
+        distributionType = Wrapper.DistributionType.ALL
     }
 }
