@@ -35,7 +35,7 @@ public class Fluids {
         FluidsTFC.getWrapper(CraftTweakerMC.getFluid(liquidStack.getDefinition())).with(DrinkableProperty.DRINKABLE, (player) -> {
             if (player.getFoodStats() instanceof FoodStatsTFC) {
                 ((FoodStatsTFC)player.getFoodStats()).addThirst(thirst);
-                player.addPotionEffect(new PotionEffect(getPotion(potion.getPotion().name().toLowerCase()), potion.getDuration(), potion.getAmplifier()));
+                player.addPotionEffect(CraftTweakerMC.getPotionEffect(potion));
             }
         });
     }
