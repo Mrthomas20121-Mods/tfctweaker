@@ -3,7 +3,6 @@ package mrthomas20121.tfctweaker.crafttweaker;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.liquid.ILiquidStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
-import crafttweaker.api.potions.IPotion;
 import crafttweaker.api.potions.IPotionEffect;
 import net.dries007.tfc.api.capability.food.FoodStatsTFC;
 import net.dries007.tfc.objects.fluids.FluidsTFC;

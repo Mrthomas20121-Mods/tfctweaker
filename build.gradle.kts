@@ -67,10 +67,10 @@ dependencies {
     implementation(fg.deobf(group = "CraftTweaker2", name = "CraftTweaker2-MC1120-Main", version = "1.12-4.1.20.656"))
 
     // tfc
-    implementation(fg.deobf(curse(mod = "tfcraft", projectId = 302973L, fileId = 3406948L)))
+    implementation(fileTree("libs"))
 
     // rocksalt version 1.0.4b
-    implementation(fg.deobf(curse(mod = "rocksalt", projectId = 398969L, fileId = 3419071L)))
+    //implementation(fg.deobf(curse(mod = "rocksalt", projectId = 398969L, fileId = 3419071L)))
 }
 
 sourceSets.main {

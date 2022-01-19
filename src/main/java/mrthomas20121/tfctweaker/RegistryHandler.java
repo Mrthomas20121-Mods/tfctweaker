@@ -1,8 +1,6 @@
 package mrthomas20121.tfctweaker;
 
-import net.dries007.tfc.Constants;
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
-import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.api.types.Tree;
 import net.dries007.tfc.objects.blocks.wood.BlockLeavesTFC;
