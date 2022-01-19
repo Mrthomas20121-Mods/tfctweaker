@@ -10,7 +10,6 @@ import net.dries007.tfc.api.recipes.knapping.KnappingRecipe;
 import net.dries007.tfc.api.recipes.knapping.KnappingRecipeSimple;
 import net.dries007.tfc.api.registries.TFCRegistries;
 import net.minecraft.item.ItemStack;
-import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -29,7 +28,7 @@ public class Knapping {
     }
 
     @ZenMethod
-    public static void addRecipe(String registryName, String knappingName, IItemStack output, @Optional(valueBoolean = true) boolean outputSlotRequired, String... pattern) {
+    public static void addRecipe(String registryName, String knappingName, IItemStack output, boolean outputSlotRequired, String... pattern) {
         KnappingData data = CustomKnapping.table.get(knappingName);
         ItemStack outputStack = (ItemStack) output.getInternal();
         KnappingRecipe recipe = new KnappingRecipeSimple(data.getType(), outputSlotRequired, outputStack, pattern).setRegistryName(registryName);
