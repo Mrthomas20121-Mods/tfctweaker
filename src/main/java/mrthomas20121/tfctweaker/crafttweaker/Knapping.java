@@ -22,9 +22,9 @@ import java.util.stream.Collectors;
 public class Knapping {
 
     @ZenMethod
-    public static void registerType(String knappingName, int amountToConsume, boolean consumeAfterComplete, String location, IItemStack... items) {
+    public static void registerType(String knappingName, int amountToConsume, boolean consumeAfterComplete, IItemStack... items) {
         List<ItemStack> list = Arrays.stream(items).map(item->(ItemStack)item.getInternal()).collect(Collectors.toList());
-        CustomKnapping.table.put(knappingName, new KnappingData(amountToConsume, consumeAfterComplete, location, list, CustomKnapping.table.size()+1));
+        CustomKnapping.table.put(knappingName, new KnappingData(amountToConsume, consumeAfterComplete, knappingName.toLowerCase(), list, CustomKnapping.table.size()+1));
     }
 
     @ZenMethod

@@ -14,7 +14,7 @@ plugins {
     id("wtf.gofancy.fancygradle") version "1.0.0"
 }
 
-version = "1.0.9"
+version = "2.0.0"
 group = "mrthomas20121.tfctweaker"
 
 fancyGradle {
