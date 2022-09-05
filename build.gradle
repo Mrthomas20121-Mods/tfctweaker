@@ -16,16 +16,14 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
-apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
-
 version = mod_version
-group = 'mrthomas20121.tfc_decoration'
-archivesBaseName = 'TFC Decoration 1.18.2'
+group = 'mrthomas20121.tfctweaker'
+archivesBaseName = 'TFCTweaker 1.18.2'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.18.1'
+    mappings channel: 'official', version: '1.18.2'
 
     runs {
         client {
@@ -39,7 +37,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                tfc_decoration {
+                tfctweaker {
                     source sourceSets.main
                 }
             }
@@ -53,7 +51,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                tfc_decoration {
+                tfctweaker {
                     source sourceSets.main
                 }
             }
@@ -66,10 +64,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'tfc_decoration', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'tfctweaker', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                tfc_decoration {
+                tfctweaker {
                     source sourceSets.main
                 }
             }
@@ -100,26 +98,26 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-
-    flatDir {
-        dir 'libs'
-    }
 }
 
 dependencies {
-    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.1.83'
-    def mcDep = 'net.minecraftforge:forge:1.18.2-40.0.36'
+    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.1.93'
+    def mcDep = "net.minecraftforge:forge:${forge_version}"
 
     minecraft mcDep
     compileOnly(ctDep)
     runtimeOnly fg.deobf(ctDep)
-	
-	implementation fileTree(include: ["*.jar"], dir: "libs")
 
-    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174")
 
-    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.2:2.0.0.83'
+    implementation fg.deobf("curse.maven:terrafirmacraft-302973:3960484")
+
+    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.1.232:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.1.232")
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
+    annotationProcessor 'com.blamejared.crafttweaker:Crafttweaker_Annotation_Processors-1.18.2:2.0.0.90'
     annotationProcessor 'com.google.code.gson:gson:2.8.6'
     annotationProcessor 'org.reflections:reflections:0.9.10'
     annotationProcessor mcDep
@@ -129,12 +127,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "TFCDecoration",
+            "Specification-Title": "TFCTweaker",
             "Specification-Vendor": "Mrthomas20121",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": project.version,
-            "Implementation-Vendor" :"tfc_decoration",
+            "Implementation-Vendor" :"tfctweaker",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
