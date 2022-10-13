@@ -16,9 +16,6 @@ public class TFCModifier {
 
     private ItemStackProvider output = ItemStackProvider.empty();
 
-    @ZenCodeType.Constructor
-    public TFCModifier() {}
-
     public TFCModifier setOutput(ItemStackProvider output) {
         this.output = output;
         return this;
