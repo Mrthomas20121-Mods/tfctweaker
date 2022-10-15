@@ -9,14 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.openzen.zencode.java.ZenCodeType;
 
-@Document("mods/tfctweaker/api/TFCModifier")
+@Document("mods/tfctweaker/Api/TFCModifier")
 @ZenRegister()
 @ZenCodeType.Name("mods.tfc.api.TFCModifier")
 public class TFCModifier {
 
     private ItemStackProvider output = ItemStackProvider.empty();
 
-    public TFCModifier setOutput(ItemStackProvider output) {
+    private TFCModifier setOutput(ItemStackProvider output) {
         this.output = output;
         return this;
     }
@@ -60,12 +60,12 @@ public class TFCModifier {
 
     @ZenCodeType.Method
     public static TFCModifier copyHeat(IItemStack output) {
-        return TFCModifier.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyFoodModifier.INSTANCE}));
+        return TFCModifier.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyHeatModifier.INSTANCE}));
     }
 
     @ZenCodeType.Method
     public static TFCModifier copyHeat() {
-        return TFCModifier.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyFoodModifier.INSTANCE}));
+        return TFCModifier.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyHeatModifier.INSTANCE}));
     }
 
     @ZenCodeType.Method
@@ -73,11 +73,21 @@ public class TFCModifier {
         return TFCModifier.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyInputModifier.INSTANCE}));
     }
 
+    /**
+     * Copy the oldest food from the input and add it to the output item
+     * @param output
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCModifier copyOldestFood(IItemStack output) {
         return TFCModifier.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyOldestFoodModifier.INSTANCE}));
     }
 
+    /**
+     * Copy the input forging bonus.
+     * @param output
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCModifier copyForgingBonus(IItemStack output) {
         return TFCModifier.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyForgingBonusModifier.INSTANCE}));
