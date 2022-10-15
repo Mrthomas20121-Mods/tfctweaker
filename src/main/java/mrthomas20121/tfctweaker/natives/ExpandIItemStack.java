@@ -1,4 +1,4 @@
-package mrthomas20121.tfctweaker.api;
+package mrthomas20121.tfctweaker.natives;
 
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IItemStack;
@@ -14,7 +14,7 @@ import java.util.Objects;
 @ZenRegister
 @Document("mods/tfctweaker/Api/IItemStackExpansion")
 @ZenCodeType.Expansion("crafttweaker.api.item.IItemStack")
-public class IItemStackExpansion {
+public class ExpandIItemStack {
 
     @ZenCodeType.Method
     public static IItemStack copyFoodValue(IItemStack self, IItemStack stack) {

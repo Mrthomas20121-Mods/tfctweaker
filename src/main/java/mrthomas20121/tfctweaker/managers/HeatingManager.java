@@ -13,6 +13,7 @@ import net.dries007.tfc.common.recipes.HeatingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
 import net.dries007.tfc.util.Helpers;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -52,6 +53,11 @@ public class HeatingManager implements IRecipeManager<HeatingRecipe> {
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, IFluidStack outputFluid, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
         addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), ItemStackProvider.empty(), outputFluid.getInternal(), temp, useDurability);
+    }
+
+    @ZenCodeType.Method
+    public void addRecipe(String name, IIngredient input, Metal output, int amount, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
+        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), ItemStackProvider.empty(), new FluidStack(output.getFluid(), amount), temp, useDurability);
     }
 
     @ZenCodeType.Method
