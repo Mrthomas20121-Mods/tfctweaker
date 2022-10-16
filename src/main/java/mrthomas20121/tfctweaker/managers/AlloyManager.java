@@ -18,8 +18,6 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * TFC Heating Recipes
- *
  * @docParam this <recipetype:tfc:heating>
  */
 @ZenRegister
