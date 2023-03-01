@@ -7,13 +7,12 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredientWithAmount;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
-import com.blamejared.crafttweaker.api.tag.type.KnownTag;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
+import mrthomas20121.tfctweaker.api.TFCFluidIngredient;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
 import net.dries007.tfc.common.recipes.SealedBarrelRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
-import net.dries007.tfc.common.recipes.ingredients.FluidIngredient;
 import net.dries007.tfc.common.recipes.ingredients.FluidStackIngredient;
 import net.dries007.tfc.common.recipes.ingredients.ItemStackIngredient;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
@@ -22,19 +21,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 import org.openzen.zencode.java.ZenCodeType;
-
-import java.util.Arrays;
 
 /**
  * @docParam this <recipetype:tfc:barrel_sealed>
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.barrel_sealed")
-@Document("mods/tfctweaker/SealedBarrelRecipe")
+@Document("mods/TFCTweaker/SealedBarrelRecipe")
 public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
 
     @Override
@@ -43,24 +39,9 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, int duration, IIngredientWithAmount input, KnownTag<Fluid> inputFluids, int amount, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCModifier onSeal, @ZenCodeType.Optional TFCModifier onUnseal) {
+    public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidStackIngredient, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCItemStackProvider onSeal, @ZenCodeType.Optional TFCItemStackProvider onUnseal) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(inputFluids.elements().toArray(Fluid[]::new)), amount);
-        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
-    }
-
-    @ZenCodeType.Method
-    public void addRecipe(String name, int duration, IIngredientWithAmount input, IFluidStack[] inputFluids, int amount, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCModifier onSeal, @ZenCodeType.Optional TFCModifier onUnseal) {
-        ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(Arrays.stream(inputFluids).map(IFluidStack::getInternal).map(FluidStack::getFluid).toArray(Fluid[]::new)), amount);
-        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
-    }
-
-    @ZenCodeType.Method
-    public void addRecipe(String name, int duration, IIngredientWithAmount input, IFluidStack inputFluid, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCModifier onSeal, @ZenCodeType.Optional TFCModifier onUnseal) {
-        ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(inputFluid.getInternal().getFluid()), inputFluid.getAmount());
-        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
+        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient.getIngredient(), TFCItemStackProvider.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
     }
 
     public void addRecipe(ResourceLocation id, int duration, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
@@ -71,7 +52,7 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SealedBarrelRecipe(id, builder, duration,onSeal, onUnseal)));
     }
 
-    private ItemStackProvider toProvider(TFCModifier modifier) {
+    private ItemStackProvider toProvider(TFCItemStackProvider modifier) {
         if(modifier == null) {
             return null;
         }

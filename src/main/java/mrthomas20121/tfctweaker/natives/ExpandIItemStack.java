@@ -12,7 +12,7 @@ import org.openzen.zencode.java.ZenCodeType;
 import java.util.Objects;
 
 @ZenRegister
-@Document("mods/tfctweaker/Api/IItemStackExpansion")
+@Document("mods/TFCTweaker/Api/IItemStackExpansion")
 @ZenCodeType.Expansion("crafttweaker.api.item.IItemStack")
 public class ExpandIItemStack {
 

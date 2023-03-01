@@ -7,9 +7,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
-import net.dries007.tfc.common.capabilities.forge.ForgeRule;
-import net.dries007.tfc.common.recipes.AnvilRecipe;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.WeldingRecipe;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
@@ -22,7 +20,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.welding")
-@Document("mods/tfctweaker/WeldingRecipe")
+@Document("mods/TFCTweaker/WeldingRecipe")
 public class WeldingManager implements IRecipeManager<WeldingRecipe> {
 
     @Override
@@ -31,7 +29,7 @@ public class WeldingManager implements IRecipeManager<WeldingRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCModifier output) {
+    public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Helpers.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.get())));
     }
 

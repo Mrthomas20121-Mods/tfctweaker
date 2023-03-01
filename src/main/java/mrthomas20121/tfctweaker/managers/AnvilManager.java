@@ -7,7 +7,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.capabilities.forge.ForgeRule;
 import net.dries007.tfc.common.recipes.AnvilRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -21,7 +21,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.anvil")
-@Document("mods/tfctweaker/AnvilRecipe")
+@Document("mods/TFCTweaker/AnvilRecipe")
 public class AnvilManager implements IRecipeManager<AnvilRecipe> {
 
     @Override
@@ -30,7 +30,7 @@ public class AnvilManager implements IRecipeManager<AnvilRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, int minTier, ForgeRule[] rules, boolean applyForgingBonus, TFCModifier modifier) {
+    public void addRecipe(String name, IIngredient input, int minTier, ForgeRule[] rules, boolean applyForgingBonus, TFCItemStackProvider modifier) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new AnvilRecipe(Helpers.identifier(name), input.asVanillaIngredient(), minTier, rules, applyForgingBonus, modifier.get())));
     }
 

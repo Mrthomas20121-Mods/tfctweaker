@@ -7,7 +7,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.ChiselRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.ingredients.BlockIngredient;
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.chisel")
-@Document("mods/tfctweaker/chiselRecipe")
+@Document("mods/TFCTweaker/chiselRecipe")
 public class ChiselManager implements IRecipeManager<ChiselRecipe> {
 
     @Override
@@ -42,7 +42,7 @@ public class ChiselManager implements IRecipeManager<ChiselRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, Block[] input, Block output, ChiselRecipe.Mode mode, TFCModifier extraDrop, @ZenCodeType.Optional IIngredient itemIngredient) {
+    public void addRecipe(String name, Block[] input, Block output, ChiselRecipe.Mode mode, TFCItemStackProvider extraDrop, @ZenCodeType.Optional IIngredient itemIngredient) {
         addRecipe(Helpers.identifier(name), BlockIngredients.of(input), output.defaultBlockState(), mode, extraDrop.get(), itemIngredient.asVanillaIngredient());
     }
 

@@ -22,7 +22,7 @@ import java.util.function.Supplier;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.alloy")
-@Document("mods/tfctweaker/AlloyManager")
+@Document("mods/TFCTweaker/AlloyManager")
 public class AlloyManager implements IRecipeManager<AlloyRecipe> {
 
     private final Map<Metal, AlloyRecipe.Range> metals = new HashMap<>();

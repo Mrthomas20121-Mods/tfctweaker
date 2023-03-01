@@ -11,7 +11,7 @@ import java.util.Locale;
 
 @ZenRegister
 @NativeTypeRegistration(value = ChiselRecipe.Mode.class, zenCodeName = "mods.tfctweaker.ChiselMode")
-@Document("mods/tfctweaker/recipe/ChiselMode")
+@Document("mods/TFCTweaker/recipe/ChiselMode")
 @BracketEnum("tfc:chisel_mode")
 public class ExpandChiselMode {
 

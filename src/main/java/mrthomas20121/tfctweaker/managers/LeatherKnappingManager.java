@@ -19,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.leather_knapping")
-@Document("mods/tfctweaker/LeatherKnappingRecipe")
+@Document("mods/TFCTweaker/LeatherKnappingRecipe")
 public class LeatherKnappingManager implements IRecipeManager<KnappingRecipe> {
 
     @Override

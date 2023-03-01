@@ -9,7 +9,7 @@ import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker.api.tag.type.KnownTag;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
 import net.dries007.tfc.common.recipes.InstantBarrelRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -33,7 +33,7 @@ import java.util.Arrays;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.instant_barrel")
-@Document("mods/tfctweaker/InstantBarrelRecipe")
+@Document("mods/TFCTweaker/InstantBarrelRecipe")
 public class InstantBarrelManager implements IRecipeManager<InstantBarrelRecipe> {
 
     @Override
@@ -45,21 +45,21 @@ public class InstantBarrelManager implements IRecipeManager<InstantBarrelRecipe>
     public void addRecipe(String name, IIngredientWithAmount input, KnownTag<Fluid> inputFluids, int amount, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
         FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(inputFluids.elements().toArray(Fluid[]::new)), amount);
-        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
+        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCItemStackProvider.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
     }
 
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredientWithAmount input, IFluidStack[] inputFluids, int amount, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
         FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(Arrays.stream(inputFluids).map(IFluidStack::getInternal).map(FluidStack::getFluid).toArray(Fluid[]::new)), amount);
-        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
+        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCItemStackProvider.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
     }
 
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredientWithAmount input, IFluidStack inputFluid, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
         FluidStackIngredient fluidStackIngredient = new FluidStackIngredient(FluidIngredient.of(inputFluid.getInternal().getFluid()), inputFluid.getAmount());
-        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCModifier.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
+        addRecipe(Helpers.identifier(name), itemStackIngredient, fluidStackIngredient, TFCItemStackProvider.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
     }
 
     public void addRecipe(ResourceLocation id, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event) {

@@ -8,7 +8,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.HeatingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
@@ -27,7 +27,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.heating")
-@Document("mods/tfctweaker/HeatingManager")
+@Document("mods/TFCTweaker/HeatingManager")
 public class HeatingManager implements IRecipeManager<HeatingRecipe> {
 
     @Override
@@ -36,17 +36,17 @@ public class HeatingManager implements IRecipeManager<HeatingRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, TFCModifier output, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
+    public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
         addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), FluidStack.EMPTY, temp, useDurability);
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, TFCModifier output, IFluidStack outputFluid, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
+    public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, IFluidStack outputFluid, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
         addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), outputFluid.getInternal(), temp, useDurability);
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, TFCModifier output, Metal outputMetal, int amount, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
+    public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, Metal outputMetal, int amount, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
         addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), new FluidStack(outputMetal.getFluid(), amount), temp, useDurability);
     }
 

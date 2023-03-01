@@ -11,7 +11,7 @@ import java.util.Locale;
 
 @ZenRegister
 @NativeTypeRegistration(value = ForgeRule.class, zenCodeName = "mods.tfctweaker.ForgeRule")
-@Document("mods/tfctweaker/recipe/ForgeRule")
+@Document("mods/TFCTweaker/recipe/ForgeRule")
 @BracketEnum("tfc:forge_rule")
 public class ExpandForgeRule {
 

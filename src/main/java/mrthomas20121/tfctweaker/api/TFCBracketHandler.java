@@ -17,13 +17,13 @@ import java.util.Locale;
 public class TFCBracketHandler {
 
     /**
-     * Gets the give {@link net.dries007.tfc.util.Metal}. Throws an Exception if not found
+     * Gets a {@link net.dries007.tfc.util.Metal} instance. Throws an Exception if not found
      *
      * @param tokens What you would write in the BEP call.
      *
      * @return The found {@link net.dries007.tfc.util.Metal}
      *
-     * @docParam tokens "minecraft:dirt"
+     * @docParam tokens "tfc:copper"
      */
     @ZenCodeType.Method
     @BracketResolver("metal")

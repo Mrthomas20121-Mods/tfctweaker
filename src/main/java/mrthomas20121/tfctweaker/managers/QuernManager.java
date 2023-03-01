@@ -7,8 +7,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCModifier;
-import net.dries007.tfc.common.recipes.AlloyRecipe;
+import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.QuernRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
@@ -21,7 +20,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.quern")
-@Document("mods/tfctweaker/QuernManager")
+@Document("mods/TFCTweaker/QuernManager")
 public class QuernManager implements IRecipeManager<QuernRecipe> {
 
     @Override
@@ -33,7 +32,7 @@ public class QuernManager implements IRecipeManager<QuernRecipe> {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new QuernRecipe(Helpers.identifier(name), input.asVanillaIngredient(), ItemStackProvider.of(output.getInternal()))));
     }
 
-    public void addRecipe(String name, IIngredient input, TFCModifier output) {
+    public void addRecipe(String name, IIngredient input, TFCItemStackProvider output) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new QuernRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get())));
 
     }

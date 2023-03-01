@@ -24,7 +24,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.blast_furnace")
-@Document("mods/tfctweaker/BlastFurnaceRecipe")
+@Document("mods/TFCTweaker/BlastFurnaceRecipe")
 public class BlastFurnaceManager implements IRecipeManager<BlastFurnaceRecipe> {
 
     @Override

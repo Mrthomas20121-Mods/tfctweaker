@@ -19,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.fire_clay_knapping")
-@Document("mods/tfctweaker/FireClayKnappingRecipe")
+@Document("mods/TFCTweaker/FireClayKnappingRecipe")
 public class FireClayKnappingManager implements IRecipeManager<KnappingRecipe> {
 
     @Override

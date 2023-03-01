@@ -22,7 +22,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.clay_knapping")
-@Document("mods/tfctweaker/ClayKnappingRecipe")
+@Document("mods/TFCTweaker/ClayKnappingRecipe")
 public class ClayKnappingManager implements IRecipeManager<KnappingRecipe> {
 
     @Override
