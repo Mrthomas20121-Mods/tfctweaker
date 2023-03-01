@@ -101,14 +101,14 @@ repositories {
 }
 
 dependencies {
-    def ctDep = 'com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:9.1.93'
+    def ctDep = "com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:${ct_version}"
     def mcDep = "net.minecraftforge:forge:${forge_version}"
 
     minecraft mcDep
     compileOnly(ctDep)
     runtimeOnly fg.deobf(ctDep)
 
-    implementation fg.deobf("curse.maven:terrafirmacraft-302973:${tfc_version}")
+    implementation fg.deobf("curse.maven:terrafirmacraft-${tfc}:${tfc_version}")
 
     compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.1.232:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.1.232")
