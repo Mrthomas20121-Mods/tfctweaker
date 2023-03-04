@@ -38,7 +38,6 @@ public class TFCItemStackProvider {
      * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
-    @ZenCodeType.Getter("empty")
     public static TFCItemStackProvider empty() {
         return new TFCItemStackProvider();
     }

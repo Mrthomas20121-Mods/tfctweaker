@@ -33,7 +33,6 @@ public class TFCFluidIngredient {
      * @return
      */
     @ZenCodeType.Method
-    @ZenCodeType.Getter("empty")
     public static TFCFluidIngredient empty() {
         return new TFCFluidIngredient(FluidStackIngredient.EMPTY);
     }
