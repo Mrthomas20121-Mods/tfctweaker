@@ -1,0 +1,2 @@
+// the tag(can be an item) is which stone can be used for the knapping.
+<recipetype:tfc:rock_knapping>.addRecipe("test_knapp", false, ["XXXXX", " XXX ", "XXXXX", " XXX ", "XXXXX"], <tag:items:tfc:igneous_extrusive_rock>, <item:tfc:stone/axe_head/igneous_extrusive>);

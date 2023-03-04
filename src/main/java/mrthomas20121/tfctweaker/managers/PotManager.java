@@ -11,14 +11,12 @@ import com.blamejared.crafttweaker_annotations.annotations.Document;
 import mrthomas20121.tfctweaker.api.TFCFluidIngredient;
 import net.dries007.tfc.common.recipes.PotRecipe;
 import net.dries007.tfc.common.recipes.SimplePotRecipe;
-import net.dries007.tfc.common.recipes.SoupPotRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
-import net.dries007.tfc.common.recipes.ingredients.FluidIngredient;
-import net.dries007.tfc.common.recipes.ingredients.FluidStackIngredient;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.openzen.zencode.java.ZenCodeType;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -33,13 +31,12 @@ public class PotManager implements IRecipeManager<PotRecipe> {
         return TFCRecipeTypes.POT.get();
     }
 
-    @ZenCodeType.Method
-    public void addSimplePotRecipe(String name, IIngredient[] ingredients, TFCFluidIngredient fluid, int duration, float minTemp, IFluidStack outputFluid, IItemStack[] output) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SimplePotRecipe(Helpers.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp, outputFluid.getInternal(), Arrays.stream(output).map(IItemStack::getInternal).toList())));
+    public void addPotRecipe(String name, IIngredient[] ingredients, TFCFluidIngredient fluid, int duration, float minTemp, IFluidStack outputFluid) {
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SimplePotRecipe(Helpers.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp, outputFluid.getInternal(), new ArrayList<>(5))));
     }
 
     @ZenCodeType.Method
-    public void addSoupPotRecipe(String name, IIngredient[] ingredients, TFCFluidIngredient fluid, int duration, float minTemp) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SoupPotRecipe(Helpers.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp)));
+    public void addPotRecipe(String name, IIngredient[] ingredients, TFCFluidIngredient fluid, int duration, float minTemp, IFluidStack outputFluid, IItemStack[] output) {
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SimplePotRecipe(Helpers.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp, outputFluid.getInternal(), Arrays.stream(output).map(IItemStack::getInternal).toList())));
     }
 }

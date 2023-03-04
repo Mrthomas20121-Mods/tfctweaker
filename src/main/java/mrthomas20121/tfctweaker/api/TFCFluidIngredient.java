@@ -7,13 +7,14 @@ import com.blamejared.crafttweaker_annotations.annotations.Document;
 import net.dries007.tfc.common.recipes.ingredients.FluidIngredient;
 import net.dries007.tfc.common.recipes.ingredients.FluidStackIngredient;
 import net.minecraft.world.level.material.Fluid;
+import org.jetbrains.annotations.Nullable;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Arrays;
 import java.util.List;
 
 @ZenRegister
-@ZenCodeType.Name("mods.tfctweaker.api.FluidStackIngredient")
+@ZenCodeType.Name("mods.tfc.api.FluidStackIngredient")
 @Document("mods/TFCTweaker/api/FluidStackIngredient")
 public class TFCFluidIngredient {
 
@@ -27,11 +28,32 @@ public class TFCFluidIngredient {
         return ingredient;
     }
 
+    /**
+     * Empty Fluid Ingredient
+     * @return
+     */
+    @ZenCodeType.Method
+    @ZenCodeType.Getter("empty")
+    public static TFCFluidIngredient empty() {
+        return new TFCFluidIngredient(FluidStackIngredient.EMPTY);
+    }
+
+    /**
+     * Fluid Ingredient from a tag
+     * @param fluids
+     * @param amount
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCFluidIngredient of(KnownTag<Fluid> fluids, int amount) {
         return new TFCFluidIngredient(new FluidStackIngredient(FluidIngredient.of(fluids.getTagKey()), amount));
     }
 
+    /**
+     * Fluid Ingredient from a fluidstack
+     * @param fluid
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCFluidIngredient of(IFluidStack fluid) {
         return new TFCFluidIngredient(new FluidStackIngredient(FluidIngredient.of(fluid.getFluid()), fluid.getAmount()));
@@ -39,7 +61,7 @@ public class TFCFluidIngredient {
 
     @ZenCodeType.Method
     public static TFCFluidIngredient of(IFluidStack[] stack, int amount) {
-        FluidIngredient[] fluidIngredients = Arrays.stream(stack).map(s -> FluidIngredient.of(s.getFluid())).toList().toArray(new FluidIngredient[] {});
+        FluidIngredient[] fluidIngredients = Arrays.stream(stack).map(IFluidStack::getFluid).map(FluidIngredient::of).toList().toArray(new FluidIngredient[] {});
         return new TFCFluidIngredient(new FluidStackIngredient(FluidIngredient.of(fluidIngredients), amount));
     }
 }

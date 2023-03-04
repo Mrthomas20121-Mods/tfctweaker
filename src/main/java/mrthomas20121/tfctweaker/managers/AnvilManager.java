@@ -30,12 +30,7 @@ public class AnvilManager implements IRecipeManager<AnvilRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, int minTier, ForgeRule[] rules, boolean applyForgingBonus, TFCItemStackProvider modifier) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new AnvilRecipe(Helpers.identifier(name), input.asVanillaIngredient(), minTier, rules, applyForgingBonus, modifier.get())));
-    }
-
-    @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, int minTier, ForgeRule[] rules, boolean applyForgingBonus, IItemStack output) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new AnvilRecipe(Helpers.identifier(name), input.asVanillaIngredient(), minTier, rules, applyForgingBonus, ItemStackProvider.of(output.getInternal()))));
+    public void addRecipe(String name, IIngredient input, int minTier, ForgeRule[] rules, boolean applyForgingBonus, TFCItemStackProvider output) {
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new AnvilRecipe(Helpers.identifier(name), input.asVanillaIngredient(), minTier, rules, applyForgingBonus, output.getInternal())));
     }
 }

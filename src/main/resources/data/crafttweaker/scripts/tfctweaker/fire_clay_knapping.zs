@@ -1,0 +1,1 @@
+<recipetype:tfc:fire_clay_knapping>.addRecipe("test_knapp", false, ["XXXXX", " XXX ", "XXXXX", " XXX ", "XXXXX"], <item:tfc:ceramic/unfired_fire_brick>);

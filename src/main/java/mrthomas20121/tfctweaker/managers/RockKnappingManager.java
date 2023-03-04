@@ -17,11 +17,11 @@ import net.minecraft.world.item.crafting.RecipeType;
 import org.openzen.zencode.java.ZenCodeType;
 
 /**
- * @docParam this <recipetype:tfc:leather_knapping>
+ * @docParam this <recipetype:tfc:rock_knapping>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.leather_knapping")
-@Document("mods/TFCTweaker/LeatherKnappingRecipe")
+@ZenCodeType.Name("mods.tfc.rock_knapping")
+@Document("mods/TFCTweaker/RockKnappingRecipe")
 public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
 
     @Override
@@ -30,7 +30,7 @@ public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, boolean outside_slot_required, String[] pattern, IItemStack output, IIngredient ingredient) {
+    public void addRecipe(String name, boolean outside_slot_required, String[] pattern, IIngredient rocks, IItemStack output) {
         int width = pattern[0].length();
         int height = pattern.length;
         KnappingPattern knappingPattern = new KnappingPattern(width,height, outside_slot_required);
@@ -45,6 +45,6 @@ public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
                 knappingPattern.set(r * width + c, row.charAt(c) != ' ');
             }
         }
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new RockKnappingRecipe(Helpers.identifier(name), knappingPattern, output.getInternal(), ingredient.asVanillaIngredient())));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new RockKnappingRecipe(Helpers.identifier(name), knappingPattern, output.getInternal(), rocks.asVanillaIngredient())));
     }
 }

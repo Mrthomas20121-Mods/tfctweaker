@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * @docParam this <recipetype:tfc:heating>
+ * @docParam this <recipetype:tfc:alloy>
  */
 @ZenRegister
 @ZenCodeType.Name("mods.tfc.alloy")
@@ -33,8 +33,15 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
     }
 
     @ZenCodeType.Method
-    public AlloyManager addMetal(String metalName, int min, int max) {
+    public AlloyManager addMetal(String metalName, double min, double max) {
         Metal metal = Metal.MANAGER.get(new ResourceLocation(metalName));
+        AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
+        metals.put(metal, range);
+        return this;
+    }
+
+    @ZenCodeType.Method
+    public AlloyManager addMetal(Metal metal, double min, double max) {
         AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
         metals.put(metal, range);
         return this;
@@ -44,6 +51,11 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
     public void create(String name, String outputMetal) {
         Metal metal = Metal.MANAGER.get(new ResourceLocation(outputMetal));
         addRecipe(Helpers.identifier(name), () -> this.metals, () -> metal);
+    }
+
+    @ZenCodeType.Method
+    public void create(String name, Metal outputMetal) {
+        addRecipe(Helpers.identifier(name), () -> this.metals, () -> outputMetal);
     }
 
     public void addRecipe(ResourceLocation name, Supplier<Map<Metal, AlloyRecipe.Range>> metals, Supplier<Metal> outputMetal) {

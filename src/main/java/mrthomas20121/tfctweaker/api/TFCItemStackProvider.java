@@ -9,14 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.openzen.zencode.java.ZenCodeType;
 
-@Document("mods/TFCTweaker/Api/TFCModifier")
+@Document("mods/TFCTweaker/Api/ItemStackProvider")
 @ZenRegister()
 @ZenCodeType.Name("mods.tfc.api.ItemStackProvider")
 public class TFCItemStackProvider {
 
     private final ItemStackProvider output;
 
-    public ItemStackProvider get() {
+    public ItemStackProvider getInternal() {
         return this.output;
     }
 
@@ -24,6 +24,7 @@ public class TFCItemStackProvider {
         return new TFCItemStackProvider(provider);
     }
 
+    @ZenCodeType.Constructor
     public TFCItemStackProvider() {
         this(ItemStackProvider.empty());
     }
@@ -34,17 +35,18 @@ public class TFCItemStackProvider {
 
     /**
      * Empty Output
-     * @return TFCModifier
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
+    @ZenCodeType.Getter("empty")
     public static TFCItemStackProvider empty() {
         return new TFCItemStackProvider();
     }
 
     /**
-     * Create an ItemstackProvider with no Modifier.
+     * Create an ItemStackProvider with no Modifier.
      * @param output item output
-     * @return TFCModifier
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider none(IItemStack output) {
@@ -79,7 +81,7 @@ public class TFCItemStackProvider {
     /**
      * Copy the oldest food from the input and add it to the output item
      * @param output
-     * @return
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyOldestFood(IItemStack output) {
@@ -89,7 +91,7 @@ public class TFCItemStackProvider {
     /**
      * Copy the input forging bonus.
      * @param output
-     * @return
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyForgingBonus(IItemStack output) {
@@ -97,8 +99,8 @@ public class TFCItemStackProvider {
     }
 
     /**
-     * Reset the input input food data.
-     * @return
+     * Reset the input food data.
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider resetFood() {
@@ -108,7 +110,7 @@ public class TFCItemStackProvider {
     /**
      * Reset the output Food data
      * @param output the output item
-     * @return
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider resetFood(IItemStack output) {
@@ -117,22 +119,22 @@ public class TFCItemStackProvider {
 
     /**
      * Add heat to the output
-     * @param output
+     * @param output heat item
      * @param heat
-     * @return
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
-    public static TFCItemStackProvider addHeat(IItemStack output, float heat) {
+    public static TFCItemStackProvider addOutputHeat(IItemStack output, float heat) {
         return TFCItemStackProvider.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{new AddHeatModifier(heat)}));
     }
 
     /**
      * Add Heat to the input
      * @param heat
-     * @return
+     * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
-    public static TFCItemStackProvider addHeat(float heat) {
+    public static TFCItemStackProvider addInputHeat(float heat) {
         return TFCItemStackProvider.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{new AddHeatModifier(heat)}));
     }
 }

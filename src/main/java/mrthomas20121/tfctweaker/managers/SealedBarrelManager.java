@@ -39,23 +39,24 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidStackIngredient, IItemStack output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCItemStackProvider onSeal, @ZenCodeType.Optional TFCItemStackProvider onUnseal) {
+    public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidStackIngredient, IItemStack output, @ZenCodeType.Optional IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCItemStackProvider onSeal, @ZenCodeType.Optional TFCItemStackProvider onUnseal) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient.getIngredient(), TFCItemStackProvider.none(output).get(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
+        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient.getIngredient(), TFCItemStackProvider.none(output).getInternal(), outputFluid == null ? null: outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
     }
 
-    public void addRecipe(ResourceLocation id, int duration, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
+    private void addRecipe(ResourceLocation id, int duration, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
         addRecipe(id, new BarrelRecipe.Builder(ingredient, fluidIngredient, output, outputFluid, event), duration, onSeal, onUnseal);
     }
 
-    public void addRecipe(ResourceLocation id, BarrelRecipe.Builder builder, int duration, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
+    private void addRecipe(ResourceLocation id, BarrelRecipe.Builder builder, int duration, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SealedBarrelRecipe(id, builder, duration,onSeal, onUnseal)));
     }
 
+    @Nullable
     private ItemStackProvider toProvider(TFCItemStackProvider modifier) {
         if(modifier == null) {
             return null;
         }
-        return modifier.get();
+        return modifier.getInternal();
     }
 }

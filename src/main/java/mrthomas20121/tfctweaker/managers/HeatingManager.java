@@ -37,17 +37,17 @@ public class HeatingManager implements IRecipeManager<HeatingRecipe> {
 
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
-        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), FluidStack.EMPTY, temp, useDurability);
+        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.getInternal(), FluidStack.EMPTY, temp, useDurability);
     }
 
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, IFluidStack outputFluid, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
-        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), outputFluid.getInternal(), temp, useDurability);
+        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.getInternal(), outputFluid.getInternal(), temp, useDurability);
     }
 
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, Metal outputMetal, int amount, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
-        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.get(), new FluidStack(outputMetal.getFluid(), amount), temp, useDurability);
+        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.getInternal(), new FluidStack(outputMetal.getFluid(), amount), temp, useDurability);
     }
 
     @ZenCodeType.Method

@@ -37,13 +37,8 @@ public class ChiselManager implements IRecipeManager<ChiselRecipe> {
     }
 
     @ZenCodeType.Method
-    public void addRecipe(String name, Block[] input, Block output, ChiselRecipe.Mode mode, IItemStack extraDrop, @ZenCodeType.Optional IIngredient itemIngredient) {
-        addRecipe(Helpers.identifier(name), BlockIngredients.of(input), output.defaultBlockState(), mode, ItemStackProvider.of(extraDrop.getInternal()), itemIngredient.asVanillaIngredient());
-    }
-
-    @ZenCodeType.Method
     public void addRecipe(String name, Block[] input, Block output, ChiselRecipe.Mode mode, TFCItemStackProvider extraDrop, @ZenCodeType.Optional IIngredient itemIngredient) {
-        addRecipe(Helpers.identifier(name), BlockIngredients.of(input), output.defaultBlockState(), mode, extraDrop.get(), itemIngredient.asVanillaIngredient());
+        addRecipe(Helpers.identifier(name), BlockIngredients.of(input), output.defaultBlockState(), mode, extraDrop.getInternal(), itemIngredient.asVanillaIngredient());
     }
 
     public void addRecipe(ResourceLocation name, BlockIngredient ingredient, BlockState output, ChiselRecipe.Mode mode, ItemStackProvider extraDrop, @Nullable Ingredient itemIngredient) {
