@@ -1,5 +1,7 @@
 package mrthomas20121.tfctweaker;
 
+import net.minecraft.resources.ResourceLocation;
+
 public class Constants {
 
     // names for the CrT classes
@@ -16,4 +18,8 @@ public class Constants {
     public static final String BRACKET_METAL = "metal";
     public static final String BRACKET_ENUM_CHISEL = "tfc:chisel_mode";
     public static final String BRACKET_ENUM_FORGE_RULES = "tfc:forge_rule";
+
+    public static ResourceLocation identifier(String name) {
+        return new ResourceLocation(TFCTweaker.mod_id, name);
+    }
 }

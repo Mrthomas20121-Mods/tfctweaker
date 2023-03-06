@@ -8,6 +8,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
 import net.dries007.tfc.common.recipes.PotRecipe;
 import net.dries007.tfc.common.recipes.SimplePotRecipe;
@@ -72,6 +73,6 @@ public class PotManager implements IRecipeManager<PotRecipe> {
      */
     @ZenCodeType.Method
     public void addPotRecipe(String name, IIngredient[] ingredients, TFCFluidIngredient fluid, int duration, float minTemp, IFluidStack outputFluid, IItemStack[] output) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SimplePotRecipe(Helpers.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp, outputFluid.getInternal(), Arrays.stream(output).map(IItemStack::getInternal).toList())));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new SimplePotRecipe(Constants.identifier(name), Arrays.stream(ingredients).map(IIngredient::asVanillaIngredient).toList(), fluid.getIngredient(), duration, minTemp, outputFluid.getInternal(), Arrays.stream(output).map(IItemStack::getInternal).toList())));
     }
 }

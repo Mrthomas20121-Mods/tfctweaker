@@ -8,6 +8,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredientWithAmount;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
@@ -43,7 +44,7 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
      * @param name name of the recipe
      * @param duration how long until the recipe is done(in hours)
      * @param input item input
-     * @param fluidStackIngredient fluid input, can be empty
+     * @param fluidIngredient fluid input, can be empty
      * @param output item output
      * @param outputFluid fluid ouput
      * @param event the sound to play when it is done, default to BREWING_STAND_BREW
@@ -59,13 +60,8 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
      * @docParam event null
      */
     @ZenCodeType.Method
-    public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidStackIngredient, IItemStack output, @ZenCodeType.Optional IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCItemStackProvider onSeal, @ZenCodeType.Optional TFCItemStackProvider onUnseal) {
-        ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        addRecipe(Helpers.identifier(name), duration, itemStackIngredient, fluidStackIngredient.getIngredient(), TFCItemStackProvider.none(output).getInternal(), outputFluid == null ? null: outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event, toProvider(onSeal), toProvider(onUnseal));
-    }
-
-    private void addRecipe(ResourceLocation id, int duration, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
-        addRecipe(id, new BarrelRecipe.Builder(ingredient, fluidIngredient, output, outputFluid, event), duration, onSeal, onUnseal);
+    private void addRecipe(String name, int duration, ItemStackIngredient input, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
+        addRecipe(Constants.identifier(name), new BarrelRecipe.Builder(input, fluidIngredient, output, outputFluid, event), duration, onSeal, onUnseal);
     }
 
     private void addRecipe(ResourceLocation id, BarrelRecipe.Builder builder, int duration, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {

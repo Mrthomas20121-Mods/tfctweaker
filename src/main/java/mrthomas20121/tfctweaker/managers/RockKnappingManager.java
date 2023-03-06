@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.KnappingRecipe;
 import net.dries007.tfc.common.recipes.RockKnappingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeSerializers;
@@ -59,6 +60,6 @@ public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
                 knappingPattern.set(r * width + c, row.charAt(c) != ' ');
             }
         }
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new RockKnappingRecipe(Helpers.identifier(name), knappingPattern, output.getInternal(), rocks.asVanillaIngredient())));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new RockKnappingRecipe(Constants.identifier(name), knappingPattern, output.getInternal(), rocks.asVanillaIngredient())));
     }
 }

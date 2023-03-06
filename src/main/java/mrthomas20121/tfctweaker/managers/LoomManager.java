@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.LoomRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -44,7 +45,7 @@ public class LoomManager implements IRecipeManager<LoomRecipe> {
      * @docParam inProgressTexture "tfc:block/burlap"
      */
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, int inputCount, int stepsRequired, String inProgressTexture) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new LoomRecipe(Helpers.identifier(name), input.asVanillaIngredient(), output.getInternal(), inputCount, stepsRequired, new ResourceLocation(inProgressTexture))));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new LoomRecipe(Constants.identifier(name), input.asVanillaIngredient(), output.getInternal(), inputCount, stepsRequired, new ResourceLocation(inProgressTexture))));
 
     }
 }

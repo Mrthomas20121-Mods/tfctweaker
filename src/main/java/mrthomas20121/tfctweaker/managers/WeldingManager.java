@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.WeldingRecipe;
@@ -42,6 +43,6 @@ public class WeldingManager implements IRecipeManager<WeldingRecipe> {
      */
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Helpers.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.getInternal())));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Constants.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.getInternal())));
     }
 }

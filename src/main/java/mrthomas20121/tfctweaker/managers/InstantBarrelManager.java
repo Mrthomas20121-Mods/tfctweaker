@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredientWithAmount;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
@@ -54,7 +55,7 @@ public class InstantBarrelManager implements IRecipeManager<InstantBarrelRecipe>
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredientWithAmount input, TFCFluidIngredient inputFluid, TFCItemStackProvider output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());
-        addRecipe(Helpers.identifier(name), itemStackIngredient, inputFluid.getIngredient(), output.getInternal(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
+        addRecipe(Constants.identifier(name), itemStackIngredient, inputFluid.getIngredient(), output.getInternal(), outputFluid.getInternal(), event == null ? SoundEvents.BREWING_STAND_BREW : event);
     }
 
     public void addRecipe(ResourceLocation id, ItemStackIngredient ingredient, FluidStackIngredient fluidIngredient, ItemStackProvider output, FluidStack outputFluid, SoundEvent event) {

@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.KnappingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeSerializers;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -55,6 +56,6 @@ public class LeatherKnappingManager implements IRecipeManager<KnappingRecipe> {
                 knappingPattern.set(r * width + c, row.charAt(c) != ' ');
             }
         }
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new KnappingRecipe(Helpers.identifier(name), knappingPattern, output.getInternal(), TFCRecipeSerializers.LEATHER_KNAPPING.get())));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new KnappingRecipe(Constants.identifier(name), knappingPattern, output.getInternal(), TFCRecipeSerializers.LEATHER_KNAPPING.get())));
     }
 }
