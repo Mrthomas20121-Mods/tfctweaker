@@ -1,20 +1,19 @@
-package mrthomas20121.tfctweaker.api;
+package mrthomas20121.tfctweaker.api.ingredient;
 
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.tag.type.KnownTag;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.ingredients.FluidIngredient;
 import net.dries007.tfc.common.recipes.ingredients.FluidStackIngredient;
 import net.minecraft.world.level.material.Fluid;
-import org.jetbrains.annotations.Nullable;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Arrays;
-import java.util.List;
 
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.api.FluidStackIngredient")
+@ZenCodeType.Name(Constants.CLASS_FLUID_INGREDIENT)
 @Document("mods/TFCTweaker/api/FluidStackIngredient")
 public class TFCFluidIngredient {
 
@@ -29,7 +28,7 @@ public class TFCFluidIngredient {
     }
 
     /**
-     * Empty Fluid Ingredient
+     * Empty Fluid Ingredient for when you don't want a fluid input
      * @return
      */
     @ZenCodeType.Method

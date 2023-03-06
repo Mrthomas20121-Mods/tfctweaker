@@ -29,6 +29,20 @@ public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
         return TFCRecipeTypes.ROCK_KNAPPING.get();
     }
 
+    /**
+     * Add a Rock Knapping recipe
+     * @param name name of the recipe
+     * @param outside_slot_required should the output slot be required
+     * @param pattern pattern
+     * @param rocks Rock(s) that be used to knapp the recipe
+     * @param output the output item
+     *
+     * @docParam name "rock_test"
+     * @docParam outside_slot_required false
+     * @docParam pattern ["XX   ", " XX  ", "  XX ", "   XX", ""]
+     * @docParam rocks <tag:items:tfc:igneous_extrusive_rock>
+     * @docParam output <item:tfc:stone/axe_head/igneous_extrusive>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, boolean outside_slot_required, String[] pattern, IIngredient rocks, IItemStack output) {
         int width = pattern[0].length();

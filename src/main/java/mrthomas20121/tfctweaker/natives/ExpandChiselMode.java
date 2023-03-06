@@ -4,15 +4,16 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker_annotations.annotations.BracketEnum;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
 import com.blamejared.crafttweaker_annotations.annotations.NativeTypeRegistration;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.ChiselRecipe;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Locale;
 
 @ZenRegister
-@NativeTypeRegistration(value = ChiselRecipe.Mode.class, zenCodeName = "mods.tfctweaker.ChiselMode")
+@NativeTypeRegistration(value = ChiselRecipe.Mode.class, zenCodeName = Constants.CLASS_EXPAND_CHISEL_MODE)
 @Document("mods/TFCTweaker/recipe/ChiselMode")
-@BracketEnum("tfc:chisel_mode")
+@BracketEnum(Constants.BRACKET_ENUM_CHISEL)
 public class ExpandChiselMode {
 
     @ZenCodeType.Method

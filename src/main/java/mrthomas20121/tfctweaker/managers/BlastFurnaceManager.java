@@ -7,7 +7,7 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCFluidIngredient;
+import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
 import net.dries007.tfc.common.recipes.BlastFurnaceRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.ingredients.FluidIngredient;
@@ -33,16 +33,56 @@ public class BlastFurnaceManager implements IRecipeManager<BlastFurnaceRecipe> {
         return TFCRecipeTypes.BLAST_FURNACE.get();
     }
 
+    /**
+     * Add a Blast furnace recipe
+     * @param name name of the recipe
+     * @param input metal
+     * @param amount amount of metal used
+     * @param catalyst catalyst used for the recipe
+     * @param output metal
+     * @param outputAmount amount of metal received
+     *
+     * @docParam name "blast_test"
+     * @docParam input <metal:tfc:copper>
+     * @docParam amount 100
+     * @docParam catalyst <tag:items:forge:gems/coal>
+     * @docParam output <metal:tfc:bronze>
+     * @docParam outputAmount 50
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, Metal input, int amount, IIngredient catalyst, Metal output, int outputAmount) {
         this.addRecipe(Helpers.identifier(name), new FluidStackIngredient(FluidIngredient.of(input.getFluid()), amount), catalyst.asVanillaIngredient(), new FluidStack(output.getFluid(), outputAmount));
     }
 
+    /**
+     * Add a Blast furnace recipe, default to 100mb of metal used
+     * @param name name of the recipe
+     * @param input metal
+     * @param catalyst catalyst used for the recipe
+     * @param output metal
+     *
+     * @docParam name "blast_test"
+     * @docParam input <metal:tfc:copper>
+     * @docParam catalyst <tag:items:forge:gems/coal>
+     * @docParam output <metal:tfc:bronze>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, Metal input, IIngredient catalyst, Metal output) {
         this.addRecipe(Helpers.identifier(name), new FluidStackIngredient(FluidIngredient.of(input.getFluid()), 100), catalyst.asVanillaIngredient(), new FluidStack(output.getFluid(), 100));
     }
 
+    /**
+     * Add a Blast furnace recipe
+     * @param name name of the recipe
+     * @param input fluid input
+     * @param catalyst catalyst used for the recipe
+     * @param output fluid output
+     *
+     * @docParam name "blast_test"
+     * @docParam input FluidStackIngredient.of(<fluid:tfc:metal/copper>*100);
+     * @docParam catalyst <tag:items:forge:gems/coal>
+     * @docParam output <fluid:tfc:metal/bronze>*100
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, TFCFluidIngredient input, IIngredient catalyst, IFluidStack output) {
         this.addRecipe(Helpers.identifier(name), input.getIngredient(), catalyst.asVanillaIngredient(), output.getInternal());

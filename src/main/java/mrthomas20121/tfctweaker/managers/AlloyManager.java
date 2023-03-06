@@ -15,6 +15,7 @@ import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -25,41 +26,87 @@ import java.util.function.Supplier;
 @Document("mods/TFCTweaker/AlloyManager")
 public class AlloyManager implements IRecipeManager<AlloyRecipe> {
 
-    private final Map<Metal, AlloyRecipe.Range> metals = new HashMap<>();
-
     @Override
     public RecipeType<AlloyRecipe> getRecipeType() {
         return TFCRecipeTypes.ALLOY.get();
     }
 
+    /**
+     * Add an alloy recipe
+     * @param name recipe name
+     * @param consumer builder
+     *
+     * @docParam name "alloy_test"
+     * @docParam consumer (alloy) => {
+     *    alloy.add("tfc:tin", 0.08, 0.12);
+     *    alloy.add("tfc:copper", 0.88, 0.92);
+     *    alloy.output("tfc:bronze");
+     *    // can also do it this way
+     *    // alloy.add(<metal:tfc:tin>, 0.08, 0.12);
+     *    // alloy.add(<metal:tfc:copper>, 0.88, 0.92);
+     *    // alloy.output(<metal:tfc:bronze>);
+     * }
+     */
     @ZenCodeType.Method
-    public AlloyManager addMetal(String metalName, double min, double max) {
-        Metal metal = Metal.MANAGER.get(new ResourceLocation(metalName));
-        AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
-        metals.put(metal, range);
-        return this;
-    }
-
-    @ZenCodeType.Method
-    public AlloyManager addMetal(Metal metal, double min, double max) {
-        AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
-        metals.put(metal, range);
-        return this;
-    }
-
-    @ZenCodeType.Method
-    public void create(String name, String outputMetal) {
-        Metal metal = Metal.MANAGER.get(new ResourceLocation(outputMetal));
-        addRecipe(Helpers.identifier(name), () -> this.metals, () -> metal);
-    }
-
-    @ZenCodeType.Method
-    public void create(String name, Metal outputMetal) {
-        addRecipe(Helpers.identifier(name), () -> this.metals, () -> outputMetal);
+    public void addRecipe(String name, Consumer<Builder> consumer) {
+        Builder builder = new Builder();
+        consumer.accept(builder);
+        addRecipe(Helpers.identifier(name), builder.getMetals(), builder.getOutput());
     }
 
     public void addRecipe(ResourceLocation name, Supplier<Map<Metal, AlloyRecipe.Range>> metals, Supplier<Metal> outputMetal) {
-        AlloyRecipe recipe = new AlloyRecipe(name, metals, outputMetal);
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, recipe));
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new AlloyRecipe(name, metals, outputMetal)));
+    }
+
+    @ZenRegister
+    @ZenCodeType.Name("mods.tfc.alloy_builder")
+    @Document("mods/TFCTweaker/AlloyBuilder")
+    public static class Builder {
+        private final Map<Metal, AlloyRecipe.Range> metals = new HashMap<>();
+
+        private Supplier<Metal> output;
+
+        /**
+         * add a metal to the alloy
+         * @param metalName name of the metal
+         * @param min min amount
+         * @param max max amount
+         */
+        @ZenCodeType.Method
+        public void add(String metalName, double min, double max) {
+            Metal metal = Metal.MANAGER.get(new ResourceLocation(metalName));
+            AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
+            metals.put(metal, range);
+        }
+
+        /**
+         * add a metal to the alloy
+         * @param metal metal
+         * @param min min amount
+         * @param max max amount
+         */
+        @ZenCodeType.Method
+        public void add(Metal metal, double min, double max) {
+            AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
+            metals.put(metal, range);
+        }
+
+        @ZenCodeType.Method
+        public void output(String name) {
+            this.output = () -> Metal.MANAGER.get(new ResourceLocation(name));
+        }
+
+        @ZenCodeType.Method
+        public void output(Metal metal) {
+            this.output = () -> metal;
+        }
+
+        public Supplier<Map<Metal, AlloyRecipe.Range>> getMetals() {
+            return () -> metals;
+        }
+
+        public Supplier<Metal> getOutput() {
+            return output;
+        }
     }
 }

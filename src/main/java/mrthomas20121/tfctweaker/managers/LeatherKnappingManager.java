@@ -27,11 +27,23 @@ public class LeatherKnappingManager implements IRecipeManager<KnappingRecipe> {
         return TFCRecipeTypes.LEATHER_KNAPPING.get();
     }
 
+    /**
+     * Add a Leather knapping recipe
+     * @param name name of the recipe
+     * @param outside_slot_required should the outside slot be required?
+     * @param pattern the pattern
+     * @param output the output item
+     *
+     * @docParam name "leather_knapping_test"
+     * @docParam outside_slot_required false
+     * @docParam pattern [" XX  ", "XXXXX", "XXXXX", "XXXXX", " XX  "]
+     * @docParam output <item:minecraft:saddle>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, boolean outside_slot_required, String[] pattern, IItemStack output) {
         int width = pattern[0].length();
         int height = pattern.length;
-        KnappingPattern knappingPattern = new KnappingPattern(width,height, outside_slot_required);
+        KnappingPattern knappingPattern = new KnappingPattern(width, height, outside_slot_required);
 
         for(int r = 0; r < height; ++r) {
             String row = pattern[r];

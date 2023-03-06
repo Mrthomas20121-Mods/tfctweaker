@@ -1,10 +1,11 @@
-package mrthomas20121.tfctweaker.api;
+package mrthomas20121.tfctweaker.api.bracket;
 
 
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
 import com.blamejared.crafttweaker.api.annotation.BracketResolver;
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.resources.ResourceLocation;
 import org.openzen.zencode.java.ZenCodeType;
@@ -12,7 +13,7 @@ import org.openzen.zencode.java.ZenCodeType;
 import java.util.Locale;
 
 @ZenRegister
-@ZenCodeType.Name("mods.tfctweaker.api.BracketHandlers")
+@ZenCodeType.Name(Constants.CLASS_BRACKET_HANDLER)
 @Document("mods/TFCTweaker/api/BracketHandlers")
 public class TFCBracketHandler {
 
@@ -38,6 +39,6 @@ public class TFCBracketHandler {
             throw new IllegalArgumentException("Could not get metal with name: <metal:" + tokens + ">! Syntax is <metal:modid:metalname>");
         }
         ResourceLocation key = new ResourceLocation(split[0], split[1]);
-        return Metal.MANAGER.getOrThrow(key);
+        return Metal.MANAGER.get(key);
     }
 }

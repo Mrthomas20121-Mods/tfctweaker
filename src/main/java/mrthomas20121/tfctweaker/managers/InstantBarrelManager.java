@@ -7,8 +7,8 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredientWithAmount;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCFluidIngredient;
-import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
+import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
+import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
 import net.dries007.tfc.common.recipes.InstantBarrelRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -36,6 +36,21 @@ public class InstantBarrelManager implements IRecipeManager<InstantBarrelRecipe>
         return TFCRecipeTypes.BARREL_INSTANT.get();
     }
 
+    /**
+     * Add an instant barrel recipe
+     * @param name name of the recipe
+     * @param input item input
+     * @param inputFluid fluid input, can be empty
+     * @param output item output
+     * @param outputFluid fluid ouput
+     * @param event the sound to play when it is done, default to BREWING_STAND_BREW
+     *
+     * @docParam name "instant_test"
+     * @docParam input <item:minecraft:dirt>*10
+     * @docParam inputFluid FluidIngredient.of(<fluid:minecraft:water>)
+     * @docParam output ItemStackProvider.empty()
+     * @docParam outputFluid <fluid:tfc:olive_oil>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredientWithAmount input, TFCFluidIngredient inputFluid, TFCItemStackProvider output, IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());

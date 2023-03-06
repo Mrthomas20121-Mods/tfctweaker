@@ -6,7 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
+import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.common.recipes.WeldingRecipe;
 import net.dries007.tfc.util.Helpers;
@@ -26,6 +26,20 @@ public class WeldingManager implements IRecipeManager<WeldingRecipe> {
         return TFCRecipeTypes.WELDING.get();
     }
 
+    /**
+     * Add a welding recipe
+     * @param name name of the recipe
+     * @param input1 first input
+     * @param input2 second input
+     * @param tier anvil tier required
+     * @param output output item
+     *
+     * @docParam name "welding_test"
+     * @docParam input1 <item:tfc:metal/ingot/copper>
+     * @docParam input2 <item:tfc:metal/double_ingot/copper>
+     * @docParam tier 1
+     * @docParam output <item:tfc:metal/double_sheet/copper>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Helpers.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.getInternal())));

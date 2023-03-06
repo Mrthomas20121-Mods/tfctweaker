@@ -27,11 +27,23 @@ public class FireClayKnappingManager implements IRecipeManager<KnappingRecipe> {
         return TFCRecipeTypes.FIRE_CLAY_KNAPPING.get();
     }
 
+    /**
+     * Add a fire clay knapping recipe
+     * @param name name of the recipe
+     * @param outside_slot_required should the outside slot be required?
+     * @param pattern the pattern
+     * @param output the output item
+     *
+     * @docParam name "knapping_test"
+     * @docParam outside_slot_required false
+     * @docParam pattern ["XXXXX", " XXX ", " XXX ", " XXX ", "XXXXX"]
+     * @docParam output <item:tfc:ceramic/unfired_fire_brick>
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, boolean outside_slot_required, String[] pattern, IItemStack output) {
         int width = pattern[0].length();
         int height = pattern.length;
-        KnappingPattern knappingPattern = new KnappingPattern(width,height, outside_slot_required);
+        KnappingPattern knappingPattern = new KnappingPattern(width, height, outside_slot_required);
 
         for(int r = 0; r < height; ++r) {
             String row = pattern[r];

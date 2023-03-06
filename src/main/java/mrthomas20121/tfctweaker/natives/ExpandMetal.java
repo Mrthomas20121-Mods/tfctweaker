@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.item.MCItemStack;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
 import com.blamejared.crafttweaker_annotations.annotations.NativeTypeRegistration;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.capabilities.forge.ForgeRule;
 import net.dries007.tfc.common.recipes.ChiselRecipe;
 import net.dries007.tfc.util.Metal;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 
 @ZenRegister
-@NativeTypeRegistration(value = Metal.class, zenCodeName = "mods.tfctweaker.api.metal")
+@NativeTypeRegistration(value = Metal.class, zenCodeName = Constants.CLASS_EXPAND_METAL)
 @Document("mods/TFCTweaker/api/Metal")
 public class ExpandMetal {
     @ZenCodeType.Method

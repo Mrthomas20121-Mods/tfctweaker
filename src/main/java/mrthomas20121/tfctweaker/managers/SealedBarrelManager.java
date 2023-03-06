@@ -8,8 +8,8 @@ import com.blamejared.crafttweaker.api.ingredient.IIngredientWithAmount;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
-import mrthomas20121.tfctweaker.api.TFCFluidIngredient;
-import mrthomas20121.tfctweaker.api.TFCItemStackProvider;
+import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
+import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.BarrelRecipe;
 import net.dries007.tfc.common.recipes.SealedBarrelRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -38,6 +38,26 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
         return TFCRecipeTypes.BARREL_SEALED.get();
     }
 
+    /**
+     * Add an instant barrel recipe
+     * @param name name of the recipe
+     * @param duration how long until the recipe is done(in hours)
+     * @param input item input
+     * @param fluidStackIngredient fluid input, can be empty
+     * @param output item output
+     * @param outputFluid fluid ouput
+     * @param event the sound to play when it is done, default to BREWING_STAND_BREW
+     * @param onSeal Call this on seal
+     * @param onUnseal Call this on unseal
+     *
+     * @docParam name "instant_test"
+     * @docParam duration 2
+     * @docParam input <item:minecraft:dirt>*10
+     * @docParam fluidStackIngredient FluidIngredient.of(<fluid:minecraft:water>)
+     * @docParam output ItemStackProvider.empty()
+     * @docParam outputFluid <fluid:tfc:olive_oil>
+     * @docParam event null
+     */
     @ZenCodeType.Method
     public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidStackIngredient, IItemStack output, @ZenCodeType.Optional IFluidStack outputFluid, @ZenCodeType.Optional SoundEvent event, @ZenCodeType.Optional TFCItemStackProvider onSeal, @ZenCodeType.Optional TFCItemStackProvider onUnseal) {
         ItemStackIngredient itemStackIngredient = new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount());

@@ -16,11 +16,12 @@ import java.util.Objects;
 @ZenCodeType.Expansion("crafttweaker.api.item.IItemStack")
 public class ExpandIItemStack {
 
-    @ZenCodeType.Method
-    public static IItemStack copyFoodValue(IItemStack self, IItemStack stack) {
-        return new MCItemStack(FoodCapability.mergeItemStacks(stack.getInternal(), self.getInternal()));
-    }
-
+    /**
+     * Apply a food trait to the stack
+     * @param self this
+     * @param trait the trait registry name
+     * @return this
+     */
     @ZenCodeType.Method
     public static IItemStack applyFoodTrait(IItemStack self, String trait) {
         return new MCItemStack(FoodCapability.applyTrait(self.getInternal(), Objects.requireNonNull(FoodTrait.getTrait(new ResourceLocation(trait)))));

@@ -1,8 +1,9 @@
-package mrthomas20121.tfctweaker.api;
+package mrthomas20121.tfctweaker.api.ingredient;
 
 import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.capabilities.food.FoodTrait;
 import net.dries007.tfc.common.recipes.outputs.*;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +12,7 @@ import org.openzen.zencode.java.ZenCodeType;
 
 @Document("mods/TFCTweaker/Api/ItemStackProvider")
 @ZenRegister()
-@ZenCodeType.Name("mods.tfc.api.ItemStackProvider")
+@ZenCodeType.Name(Constants.CLASS_ITEMSTACK_PROVIDER)
 public class TFCItemStackProvider {
 
     private final ItemStackProvider output;

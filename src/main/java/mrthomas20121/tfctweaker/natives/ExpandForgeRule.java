@@ -4,15 +4,16 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker_annotations.annotations.BracketEnum;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
 import com.blamejared.crafttweaker_annotations.annotations.NativeTypeRegistration;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.capabilities.forge.ForgeRule;
 import org.openzen.zencode.java.ZenCodeType;
 
 import java.util.Locale;
 
 @ZenRegister
-@NativeTypeRegistration(value = ForgeRule.class, zenCodeName = "mods.tfctweaker.ForgeRule")
+@NativeTypeRegistration(value = ForgeRule.class, zenCodeName = Constants.CLASS_EXPAND_FORGE_RULES)
 @Document("mods/TFCTweaker/recipe/ForgeRule")
-@BracketEnum("tfc:forge_rule")
+@BracketEnum(Constants.BRACKET_ENUM_FORGE_RULES)
 public class ExpandForgeRule {
 
     @ZenCodeType.Method

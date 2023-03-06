@@ -1,0 +1,19 @@
+package mrthomas20121.tfctweaker;
+
+public class Constants {
+
+    // names for the CrT classes
+    public static final String CLASS_BRACKET_DUMPER = "tfc.api.bracket.dumper";
+    public static final String CLASS_BRACKET_HANDLER = "tfc.api.bracket.handler";
+    public static final String CLASS_BRACKET_VALIDATOR = "tfc.api.bracket.validator";
+    public static final String CLASS_FLUID_INGREDIENT = "tfc.api.ingredient.FluidIngredient";
+    public static final String CLASS_BLOCK_INGREDIENT = "tfc.api.ingredient.BlockIngredient";
+    public static final String CLASS_ITEMSTACK_PROVIDER = "tfc.api.ingredient.ItemStackProvider";
+    public static final String CLASS_EXPAND_METAL = "tfc.api.metal";
+    public static final String CLASS_EXPAND_CHISEL_MODE = "tfc.api.ChiselMode";
+    public static final String CLASS_EXPAND_FORGE_RULES = "tfc.api.ForgeRule";
+
+    public static final String BRACKET_METAL = "metal";
+    public static final String BRACKET_ENUM_CHISEL = "tfc:chisel_mode";
+    public static final String BRACKET_ENUM_FORGE_RULES = "tfc:forge_rule";
+}
