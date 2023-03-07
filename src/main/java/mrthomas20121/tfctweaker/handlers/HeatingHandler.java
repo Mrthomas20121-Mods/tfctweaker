@@ -20,6 +20,13 @@ import java.util.stream.Collectors;
 @IRecipeHandler.For(HeatingRecipe.class)
 public class HeatingHandler implements IRecipeHandler<HeatingRecipe> {
 
+    /**
+     * dump to command string
+     * @param manager The recipe manager responsible for this kind of recipes.
+     * @param recipe  The recipe that is currently being dumped.
+     *
+     * @return
+     */
     @Override
     public String dumpToCommandString(IRecipeManager manager, HeatingRecipe recipe) {
         return String.format("<recipetype:tfc:heating>.addRecipe(\"%s\", %s, %s, %s);",

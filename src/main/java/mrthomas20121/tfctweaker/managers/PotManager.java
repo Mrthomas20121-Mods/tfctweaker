@@ -42,7 +42,7 @@ public class PotManager implements IRecipeManager<PotRecipe> {
      * @param outputFluid output fluid
      *
      * @docParam name "pot_test"
-     * @docParam ingredients [<item:minecraft:dirt>, <tag:items:minecraft:sand>]
+     * @docParam ingredients [<tag:items:minecraft:sand>]
      * @docParam fluid FluidIngredient.of(<fluid:tfc:salt_water>)
      * @docParam duration 4
      * @docParam minTemp 200
@@ -64,7 +64,7 @@ public class PotManager implements IRecipeManager<PotRecipe> {
      * @param output output items
      *
      * @docParam name "pot_test"
-     * @docParam ingredients [<item:minecraft:dirt>, <tag:items:minecraft:sand>]
+     * @docParam ingredients [<tag:items:minecraft:sand>]
      * @docParam fluid FluidIngredient.of(<fluid:tfc:salt_water>)
      * @docParam duration 4
      * @docParam minTemp 200

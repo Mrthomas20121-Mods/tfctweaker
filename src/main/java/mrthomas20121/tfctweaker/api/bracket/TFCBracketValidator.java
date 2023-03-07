@@ -11,6 +11,13 @@ import org.openzen.zencode.java.ZenCodeType;
 @ZenCodeType.Name(Constants.CLASS_BRACKET_VALIDATOR)
 public class TFCBracketValidator {
 
+    /**
+     * validate a metal
+     * @param tokens tokens
+     * @return true if metal is valid
+     *
+     * @docParam tokens "tfc:copper"
+     */
     @BracketValidator(Constants.BRACKET_METAL)
     public static boolean validateMetal(String tokens) {
         return Metal.MANAGER.get(new ResourceLocation(tokens)) != null;

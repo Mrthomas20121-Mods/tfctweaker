@@ -71,6 +71,10 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
          * @param metalName name of the metal
          * @param min min amount
          * @param max max amount
+         *
+         * @docParam metalName "tfc:copper"
+         * @docParam min 0.88
+         * @docParam max 0.92
          */
         @ZenCodeType.Method
         public void add(String metalName, double min, double max) {
@@ -84,6 +88,10 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
          * @param metal metal
          * @param min min amount
          * @param max max amount
+         *
+         * @docParam metal <metal:tfc:copper>
+         * @docParam min 0.88
+         * @docParam max 0.92
          */
         @ZenCodeType.Method
         public void add(Metal metal, double min, double max) {
@@ -91,15 +99,28 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
             metals.put(metal, range);
         }
 
+        /**
+         * Add a metal as output
+         * @param name name of the metal
+         *
+         * @docParam name "bronze"
+         */
         @ZenCodeType.Method
         public void output(String name) {
             this.output = () -> Metal.MANAGER.get(new ResourceLocation(name));
         }
 
+        /**
+         * Add a metal as output
+         * @param metal metal
+         *
+         * @docParam metal <metal:tfc:bronze>
+         */
         @ZenCodeType.Method
         public void output(Metal metal) {
             this.output = () -> metal;
         }
+
 
         public Supplier<Map<Metal, AlloyRecipe.Range>> getMetals() {
             return () -> metals;

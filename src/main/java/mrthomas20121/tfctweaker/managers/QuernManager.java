@@ -33,9 +33,9 @@ public class QuernManager implements IRecipeManager<QuernRecipe> {
      * @param input input ingredient
      * @param output output item
      *
-     * @docParam "quern_test",
+     * @docParam name "quern_test"
      * @docParam input <item:tfc:metal/ingot/copper>
-     * @docParam output <item:tfc:metal/sheet/copper>
+     * @docParam output ItemStackProvider.none(<item:tfc:metal/sheet/copper>)
      */
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output) {

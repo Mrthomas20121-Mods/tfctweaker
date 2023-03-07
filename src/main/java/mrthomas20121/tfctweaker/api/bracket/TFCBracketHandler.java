@@ -27,7 +27,7 @@ public class TFCBracketHandler {
      * @docParam tokens "tfc:copper"
      */
     @ZenCodeType.Method
-    @BracketResolver("metal")
+    @BracketResolver(Constants.BRACKET_METAL)
     public static Metal getMetal(String tokens) {
 
         if(!tokens.toLowerCase(Locale.ENGLISH).equals(tokens)) {

@@ -31,8 +31,15 @@ public class ExpandMetal {
         return Metal.MANAGER.getValues().toArray(new Metal[] {});
     }
 
+    /**
+     * get the metal from ingot
+     * @param stack ingot
+     * @return metal found
+     *
+     * @docParam stack <item:tfc:metal/ingot/copper>
+     */
     @ZenCodeType.Method
-    public static Metal getMetalFromStack(IItemStack stack) {
+    public static Metal getMetalFromIngot(IItemStack stack) {
         return Metal.getFromIngot(stack.getInternal());
     }
 
