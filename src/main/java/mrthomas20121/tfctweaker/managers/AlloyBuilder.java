@@ -31,7 +31,7 @@ class AlloyBuilder {
      * @docParam max 0.92
      */
     @ZenCodeType.Method
-    public void add(String metalName, double min, double max) {
+    public void Add(String metalName, double min, double max) {
         Metal metal = Metal.MANAGER.get(new ResourceLocation(metalName));
         AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
         metals.put(metal, range);
@@ -48,7 +48,7 @@ class AlloyBuilder {
      * @docParam max 0.92
      */
     @ZenCodeType.Method
-    public void add(Metal metal, double min, double max) {
+    public void Add(Metal metal, double min, double max) {
         AlloyRecipe.Range range = new AlloyRecipe.Range(min, max);
         metals.put(metal, range);
     }
@@ -60,7 +60,7 @@ class AlloyBuilder {
      * @docParam name "bronze"
      */
     @ZenCodeType.Method
-    public void output(String name) {
+    public void Output(String name) {
         this.output = () -> Metal.MANAGER.get(new ResourceLocation(name));
     }
 
@@ -71,7 +71,7 @@ class AlloyBuilder {
      * @docParam metal <metal:tfc:bronze>
      */
     @ZenCodeType.Method
-    public void output(Metal metal) {
+    public void Output(Metal metal) {
         this.output = () -> metal;
     }
 
