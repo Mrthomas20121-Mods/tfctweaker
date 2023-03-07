@@ -18,7 +18,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:welding>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.welding")
+@ZenCodeType.Name(Constants.CLASS_WELDING)
 @Document("mods/TFCTweaker/WeldingRecipe")
 public class WeldingManager implements IRecipeManager<WeldingRecipe> {
 

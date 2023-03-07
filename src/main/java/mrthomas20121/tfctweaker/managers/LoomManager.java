@@ -19,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:loom>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.loom")
+@ZenCodeType.Name(Constants.CLASS_LOOM)
 @Document("mods/TFCTweaker/LoomRecipe")
 public class LoomManager implements IRecipeManager<LoomRecipe> {
 

@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.capabilities.forge.ForgeRule;
 import net.dries007.tfc.common.recipes.AnvilRecipe;
@@ -18,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:anvil>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.anvil")
+@ZenCodeType.Name(Constants.CLASS_ANVIL)
 @Document("mods/TFCTweaker/AnvilRecipe")
 public class AnvilManager implements IRecipeManager<AnvilRecipe> {
 

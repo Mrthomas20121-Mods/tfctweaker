@@ -12,7 +12,7 @@ import java.util.Locale;
 
 @ZenRegister
 @NativeTypeRegistration(value = ForgeRule.class, zenCodeName = Constants.CLASS_EXPAND_FORGE_RULES)
-@Document("mods/TFCTweaker/recipe/ForgeRule")
+@Document("mods/TFCTweaker/Api/Expansion/ForgeRule")
 @BracketEnum(Constants.BRACKET_ENUM_FORGE_RULES)
 public class ExpandForgeRule {
 

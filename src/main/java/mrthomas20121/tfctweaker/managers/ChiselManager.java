@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCBlockIngredient;
 import mrthomas20121.tfctweaker.api.ingredient.TFCItemStackProvider;
 import net.dries007.tfc.common.recipes.ChiselRecipe;
@@ -26,7 +27,7 @@ import javax.annotation.Nullable;
  * @docParam this <recipetype:tfc:chisel>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.chisel")
+@ZenCodeType.Name(Constants.CLASS_CHISEL)
 @Document("mods/TFCTweaker/chiselRecipe")
 public class ChiselManager implements IRecipeManager<ChiselRecipe> {
 

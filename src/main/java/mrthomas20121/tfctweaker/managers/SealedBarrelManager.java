@@ -30,7 +30,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:barrel_sealed>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.barrel_sealed")
+@ZenCodeType.Name(Constants.CLASS_SEALED_BARREL)
 @Document("mods/TFCTweaker/SealedBarrelRecipe")
 public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
 

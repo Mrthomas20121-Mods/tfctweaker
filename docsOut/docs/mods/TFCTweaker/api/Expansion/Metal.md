@@ -12,7 +12,7 @@ import tfc.api.metal;
 
 :::group{name=getAllMetals}
 
-Return Type: [metal](/mods/TFCTweaker/api/Metal)[]
+Return Type: [metal](/mods/TFCTweaker/Api/Expansion/Metal)[]
 
 ```zenscript
 // metal.getAllMetals() as metal[]
@@ -33,10 +33,10 @@ Return Type: [IFluidStack](/forge/api/fluid/IFluidStack)
 metal.getFluidStack(internal as metal, amount as int) as IFluidStack
 ```
 
-| Parameter |                Type                 | Description |
-|-----------|-------------------------------------|-------------|
-| internal  | [metal](/mods/TFCTweaker/api/Metal) | metal       |
-| amount    | int                                 | amount      |
+| Parameter |                     Type                      | Description |
+|-----------|-----------------------------------------------|-------------|
+| internal  | [metal](/mods/TFCTweaker/Api/Expansion/Metal) | metal       |
+| amount    | int                                           | amount      |
 
 
 :::
@@ -46,7 +46,7 @@ metal.getFluidStack(internal as metal, amount as int) as IFluidStack
 get the metal from ingot
 
 Returns: metal found  
-Return Type: [metal](/mods/TFCTweaker/api/Metal)
+Return Type: [metal](/mods/TFCTweaker/Api/Expansion/Metal)
 
 ```zenscript
 // metal.getMetalFromIngot(stack as IItemStack) as metal
@@ -72,10 +72,10 @@ Return Type: [IItemStack](/vanilla/api/item/IItemStack)
 metal.getMetalPart(internal as metal, partName as string) as IItemStack
 ```
 
-| Parameter |                Type                 |   Description   |
-|-----------|-------------------------------------|-----------------|
-| internal  | [metal](/mods/TFCTweaker/api/Metal) | internal metal  |
-| partName  | string                              | metal part name |
+| Parameter |                     Type                      |   Description   |
+|-----------|-----------------------------------------------|-----------------|
+| internal  | [metal](/mods/TFCTweaker/Api/Expansion/Metal) | internal metal  |
+| partName  | string                                        | metal part name |
 
 
 :::

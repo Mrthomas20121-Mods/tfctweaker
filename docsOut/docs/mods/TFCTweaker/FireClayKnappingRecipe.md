@@ -1,15 +1,15 @@
-# fire_clay_knapping
+# FireClayKnapping
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.fire_clay_knapping;
+import mods.tfc.FireClayKnapping;
 ```
 
 
 ## Implemented Interfaces
-fire_clay_knapping implements the following interfaces. That means all methods defined in these interfaces are also available in fire_clay_knapping
+FireClayKnapping implements the following interfaces. That means all methods defined in these interfaces are also available in FireClayKnapping
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ fire_clay_knapping implements the following interfaces. That means all methods d
 :::group{name=addJsonRecipe}
 
 ```zenscript
-fire_clay_knapping.addJsonRecipe(name as string, mapData as MapData)
+FireClayKnapping.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ fire_clay_knapping.addJsonRecipe(name as string, mapData as MapData)
 Add a fire clay knapping recipe
 
 ```zenscript
-// fire_clay_knapping.addRecipe(name as string, outside_slot_required as boolean, pattern as string[], output as IItemStack)
+// FireClayKnapping.addRecipe(name as string, outside_slot_required as boolean, pattern as string[], output as IItemStack)
 
 <recipetype:tfc:fire_clay_knapping>.addRecipe("knapping_test", false, ["XXXXX", " XXX ", " XXX ", " XXX ", "XXXXX"], <item:tfc:ceramic/unfired_fire_brick>);
 ```
@@ -54,7 +54,7 @@ Add a fire clay knapping recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// fire_clay_knapping.getAllRecipes() as stdlib.List<T>
+// FireClayKnapping.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:fire_clay_knapping>.getAllRecipes();
 ```
@@ -66,7 +66,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-fire_clay_knapping.getRecipeByName(name as string) as T
+FireClayKnapping.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -81,7 +81,7 @@ fire_clay_knapping.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// fire_clay_knapping.getRecipeMap() as T[ResourceLocation]
+// FireClayKnapping.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:fire_clay_knapping>.getRecipeMap();
 ```
@@ -93,7 +93,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-fire_clay_knapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+FireClayKnapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -106,7 +106,7 @@ fire_clay_knapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-fire_clay_knapping.remove(output as IIngredient)
+FireClayKnapping.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -119,7 +119,7 @@ fire_clay_knapping.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// fire_clay_knapping.removeAll()
+// FireClayKnapping.removeAll()
 
 <recipetype:tfc:fire_clay_knapping>.removeAll();
 ```
@@ -129,7 +129,7 @@ fire_clay_knapping.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-fire_clay_knapping.removeByInput(input as IItemStack)
+FireClayKnapping.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -142,7 +142,7 @@ fire_clay_knapping.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-fire_clay_knapping.removeByModid(modid as string, exclude as Predicate<string>)
+FireClayKnapping.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -156,7 +156,7 @@ fire_clay_knapping.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-fire_clay_knapping.removeByName(names as string[])
+FireClayKnapping.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -169,7 +169,7 @@ fire_clay_knapping.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-fire_clay_knapping.removeByRegex(regex as string, exclude as Predicate<string>)
+FireClayKnapping.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

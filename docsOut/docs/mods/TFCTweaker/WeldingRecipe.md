@@ -1,15 +1,15 @@
-# welding
+# Welding
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.welding;
+import mods.tfc.Welding;
 ```
 
 
 ## Implemented Interfaces
-welding implements the following interfaces. That means all methods defined in these interfaces are also available in welding
+Welding implements the following interfaces. That means all methods defined in these interfaces are also available in Welding
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ welding implements the following interfaces. That means all methods defined in t
 :::group{name=addJsonRecipe}
 
 ```zenscript
-welding.addJsonRecipe(name as string, mapData as MapData)
+Welding.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ welding.addJsonRecipe(name as string, mapData as MapData)
 Add a welding recipe
 
 ```zenscript
-// welding.addRecipe(name as string, input1 as IIngredient, input2 as IIngredient, tier as int, output as ItemStackProvider)
+// Welding.addRecipe(name as string, input1 as IIngredient, input2 as IIngredient, tier as int, output as ItemStackProvider)
 
 <recipetype:tfc:welding>.addRecipe("welding_test", <item:tfc:metal/ingot/copper>, <item:tfc:metal/double_ingot/copper>, 1, <item:tfc:metal/double_sheet/copper>);
 ```
@@ -55,7 +55,7 @@ Add a welding recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// welding.getAllRecipes() as stdlib.List<T>
+// Welding.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:welding>.getAllRecipes();
 ```
@@ -67,7 +67,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-welding.getRecipeByName(name as string) as T
+Welding.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -82,7 +82,7 @@ welding.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// welding.getRecipeMap() as T[ResourceLocation]
+// Welding.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:welding>.getRecipeMap();
 ```
@@ -94,7 +94,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-welding.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+Welding.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -107,7 +107,7 @@ welding.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-welding.remove(output as IIngredient)
+Welding.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -120,7 +120,7 @@ welding.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// welding.removeAll()
+// Welding.removeAll()
 
 <recipetype:tfc:welding>.removeAll();
 ```
@@ -130,7 +130,7 @@ welding.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-welding.removeByInput(input as IItemStack)
+Welding.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -143,7 +143,7 @@ welding.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-welding.removeByModid(modid as string, exclude as Predicate<string>)
+Welding.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -157,7 +157,7 @@ welding.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-welding.removeByName(names as string[])
+Welding.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -170,7 +170,7 @@ welding.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-welding.removeByRegex(regex as string, exclude as Predicate<string>)
+Welding.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

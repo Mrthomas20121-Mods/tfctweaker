@@ -24,7 +24,7 @@ import java.util.Locale;
 
 @ZenRegister
 @NativeTypeRegistration(value = Metal.class, zenCodeName = Constants.CLASS_EXPAND_METAL)
-@Document("mods/TFCTweaker/api/Metal")
+@Document("mods/TFCTweaker/Api/Expansion/Metal")
 public class ExpandMetal {
     @ZenCodeType.StaticExpansionMethod
     public static Metal[] getAllMetals() {

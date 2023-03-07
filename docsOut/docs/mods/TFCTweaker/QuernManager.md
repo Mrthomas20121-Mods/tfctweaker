@@ -1,15 +1,15 @@
-# quern
+# Quern
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.quern;
+import mods.tfc.Quern;
 ```
 
 
 ## Implemented Interfaces
-quern implements the following interfaces. That means all methods defined in these interfaces are also available in quern
+Quern implements the following interfaces. That means all methods defined in these interfaces are also available in Quern
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ quern implements the following interfaces. That means all methods defined in the
 :::group{name=addJsonRecipe}
 
 ```zenscript
-quern.addJsonRecipe(name as string, mapData as MapData)
+Quern.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ quern.addJsonRecipe(name as string, mapData as MapData)
 Add a quern recipe
 
 ```zenscript
-// quern.addRecipe(name as string, input as IIngredient, output as ItemStackProvider)
+// Quern.addRecipe(name as string, input as IIngredient, output as ItemStackProvider)
 
 <recipetype:tfc:quern>.addRecipe("quern_test", <item:tfc:metal/ingot/copper>, ItemStackProvider.none(<item:tfc:metal/sheet/copper>));
 ```
@@ -53,7 +53,7 @@ Add a quern recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// quern.getAllRecipes() as stdlib.List<T>
+// Quern.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:quern>.getAllRecipes();
 ```
@@ -65,7 +65,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-quern.getRecipeByName(name as string) as T
+Quern.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -80,7 +80,7 @@ quern.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// quern.getRecipeMap() as T[ResourceLocation]
+// Quern.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:quern>.getRecipeMap();
 ```
@@ -92,7 +92,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-quern.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+Quern.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -105,7 +105,7 @@ quern.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-quern.remove(output as IIngredient)
+Quern.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -118,7 +118,7 @@ quern.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// quern.removeAll()
+// Quern.removeAll()
 
 <recipetype:tfc:quern>.removeAll();
 ```
@@ -128,7 +128,7 @@ quern.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-quern.removeByInput(input as IItemStack)
+Quern.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -141,7 +141,7 @@ quern.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-quern.removeByModid(modid as string, exclude as Predicate<string>)
+Quern.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -155,7 +155,7 @@ quern.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-quern.removeByName(names as string[])
+Quern.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -168,7 +168,7 @@ quern.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-quern.removeByRegex(regex as string, exclude as Predicate<string>)
+Quern.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

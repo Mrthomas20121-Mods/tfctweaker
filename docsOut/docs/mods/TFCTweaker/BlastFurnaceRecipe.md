@@ -1,15 +1,15 @@
-# blast_furnace
+# BlastFurnace
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.blast_furnace;
+import mods.tfc.BlastFurnace;
 ```
 
 
 ## Implemented Interfaces
-blast_furnace implements the following interfaces. That means all methods defined in these interfaces are also available in blast_furnace
+BlastFurnace implements the following interfaces. That means all methods defined in these interfaces are also available in BlastFurnace
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ blast_furnace implements the following interfaces. That means all methods define
 :::group{name=addJsonRecipe}
 
 ```zenscript
-blast_furnace.addJsonRecipe(name as string, mapData as MapData)
+BlastFurnace.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ blast_furnace.addJsonRecipe(name as string, mapData as MapData)
 Add a Blast furnace recipe
 
 ```zenscript
-// blast_furnace.addRecipe(name as string, input as FluidIngredient, catalyst as IIngredient, output as IFluidStack)
+// BlastFurnace.addRecipe(name as string, input as FluidIngredient, catalyst as IIngredient, output as IFluidStack)
 
 <recipetype:tfc:blast_furnace>.addRecipe("blast_test", FluidStackIngredient.of(<fluid:tfc:metal/copper>*100);, <tag:items:forge:gems/coal>, <fluid:tfc:metal/bronze>*100);
 ```
@@ -54,7 +54,7 @@ Add a Blast furnace recipe
 Add a Blast furnace recipe, default to 100mb of metal used
 
 ```zenscript
-// blast_furnace.addRecipe(name as string, input as metal, catalyst as IIngredient, output as metal)
+// BlastFurnace.addRecipe(name as string, input as metal, catalyst as IIngredient, output as metal)
 
 <recipetype:tfc:blast_furnace>.addRecipe("blast_test", <metal:tfc:copper>, <tag:items:forge:gems/coal>, <metal:tfc:bronze>);
 ```
@@ -62,9 +62,9 @@ Add a Blast furnace recipe, default to 100mb of metal used
 | Parameter |                        Type                        |         Description          |
 |-----------|----------------------------------------------------|------------------------------|
 | name      | string                                             | name of the recipe           |
-| input     | [metal](/mods/TFCTweaker/api/Metal)                | metal                        |
+| input     | [metal](/mods/TFCTweaker/Api/Expansion/Metal)      | metal                        |
 | catalyst  | [IIngredient](/vanilla/api/ingredient/IIngredient) | catalyst used for the recipe |
-| output    | [metal](/mods/TFCTweaker/api/Metal)                | metal                        |
+| output    | [metal](/mods/TFCTweaker/Api/Expansion/Metal)      | metal                        |
 
 
 :::
@@ -74,7 +74,7 @@ Add a Blast furnace recipe, default to 100mb of metal used
 Add a Blast furnace recipe
 
 ```zenscript
-// blast_furnace.addRecipe(name as string, input as metal, amount as int, catalyst as IIngredient, output as metal, outputAmount as int)
+// BlastFurnace.addRecipe(name as string, input as metal, amount as int, catalyst as IIngredient, output as metal, outputAmount as int)
 
 <recipetype:tfc:blast_furnace>.addRecipe("blast_test", <metal:tfc:copper>, 100, <tag:items:forge:gems/coal>, <metal:tfc:bronze>, 50);
 ```
@@ -82,10 +82,10 @@ Add a Blast furnace recipe
 |  Parameter   |                        Type                        |         Description          |
 |--------------|----------------------------------------------------|------------------------------|
 | name         | string                                             | name of the recipe           |
-| input        | [metal](/mods/TFCTweaker/api/Metal)                | metal                        |
+| input        | [metal](/mods/TFCTweaker/Api/Expansion/Metal)      | metal                        |
 | amount       | int                                                | amount of metal used         |
 | catalyst     | [IIngredient](/vanilla/api/ingredient/IIngredient) | catalyst used for the recipe |
-| output       | [metal](/mods/TFCTweaker/api/Metal)                | metal                        |
+| output       | [metal](/mods/TFCTweaker/Api/Expansion/Metal)      | metal                        |
 | outputAmount | int                                                | amount of metal received     |
 
 
@@ -96,7 +96,7 @@ Add a Blast furnace recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// blast_furnace.getAllRecipes() as stdlib.List<T>
+// BlastFurnace.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:blast_furnace>.getAllRecipes();
 ```
@@ -108,7 +108,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-blast_furnace.getRecipeByName(name as string) as T
+BlastFurnace.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -123,7 +123,7 @@ blast_furnace.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// blast_furnace.getRecipeMap() as T[ResourceLocation]
+// BlastFurnace.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:blast_furnace>.getRecipeMap();
 ```
@@ -135,7 +135,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-blast_furnace.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+BlastFurnace.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -148,7 +148,7 @@ blast_furnace.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-blast_furnace.remove(output as IIngredient)
+BlastFurnace.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -161,7 +161,7 @@ blast_furnace.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// blast_furnace.removeAll()
+// BlastFurnace.removeAll()
 
 <recipetype:tfc:blast_furnace>.removeAll();
 ```
@@ -171,7 +171,7 @@ blast_furnace.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-blast_furnace.removeByInput(input as IItemStack)
+BlastFurnace.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -184,7 +184,7 @@ blast_furnace.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-blast_furnace.removeByModid(modid as string, exclude as Predicate<string>)
+BlastFurnace.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -198,7 +198,7 @@ blast_furnace.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-blast_furnace.removeByName(names as string[])
+BlastFurnace.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -211,7 +211,7 @@ blast_furnace.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-blast_furnace.removeByRegex(regex as string, exclude as Predicate<string>)
+BlastFurnace.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

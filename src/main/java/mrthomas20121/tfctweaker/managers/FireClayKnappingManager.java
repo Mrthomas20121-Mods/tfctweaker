@@ -6,6 +6,7 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.KnappingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeSerializers;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -18,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:fire_clay_knapping>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.fire_clay_knapping")
+@ZenCodeType.Name(Constants.CLASS_FIRE_CLAY_KNAPPING)
 @Document("mods/TFCTweaker/FireClayKnappingRecipe")
 public class FireClayKnappingManager implements IRecipeManager<KnappingRecipe> {
 

@@ -1,15 +1,15 @@
-# rock_knapping
+# RockKnapping
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.rock_knapping;
+import mods.tfc.RockKnapping;
 ```
 
 
 ## Implemented Interfaces
-rock_knapping implements the following interfaces. That means all methods defined in these interfaces are also available in rock_knapping
+RockKnapping implements the following interfaces. That means all methods defined in these interfaces are also available in RockKnapping
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ rock_knapping implements the following interfaces. That means all methods define
 :::group{name=addJsonRecipe}
 
 ```zenscript
-rock_knapping.addJsonRecipe(name as string, mapData as MapData)
+RockKnapping.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ rock_knapping.addJsonRecipe(name as string, mapData as MapData)
 Add a Rock Knapping recipe
 
 ```zenscript
-// rock_knapping.addRecipe(name as string, outside_slot_required as boolean, pattern as string[], rocks as IIngredient, output as IItemStack)
+// RockKnapping.addRecipe(name as string, outside_slot_required as boolean, pattern as string[], rocks as IIngredient, output as IItemStack)
 
 <recipetype:tfc:rock_knapping>.addRecipe("rock_test", false, ["XX   ", " XX  ", "  XX ", "   XX", ""], <tag:items:tfc:igneous_extrusive_rock>, <item:tfc:stone/axe_head/igneous_extrusive>);
 ```
@@ -55,7 +55,7 @@ Add a Rock Knapping recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// rock_knapping.getAllRecipes() as stdlib.List<T>
+// RockKnapping.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:rock_knapping>.getAllRecipes();
 ```
@@ -67,7 +67,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-rock_knapping.getRecipeByName(name as string) as T
+RockKnapping.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -82,7 +82,7 @@ rock_knapping.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// rock_knapping.getRecipeMap() as T[ResourceLocation]
+// RockKnapping.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:rock_knapping>.getRecipeMap();
 ```
@@ -94,7 +94,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-rock_knapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+RockKnapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -107,7 +107,7 @@ rock_knapping.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-rock_knapping.remove(output as IIngredient)
+RockKnapping.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -120,7 +120,7 @@ rock_knapping.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// rock_knapping.removeAll()
+// RockKnapping.removeAll()
 
 <recipetype:tfc:rock_knapping>.removeAll();
 ```
@@ -130,7 +130,7 @@ rock_knapping.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-rock_knapping.removeByInput(input as IItemStack)
+RockKnapping.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -143,7 +143,7 @@ rock_knapping.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-rock_knapping.removeByModid(modid as string, exclude as Predicate<string>)
+RockKnapping.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -157,7 +157,7 @@ rock_knapping.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-rock_knapping.removeByName(names as string[])
+RockKnapping.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -170,7 +170,7 @@ rock_knapping.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-rock_knapping.removeByRegex(regex as string, exclude as Predicate<string>)
+RockKnapping.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

@@ -1,15 +1,15 @@
-# alloy
+# Alloy
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.alloy;
+import mods.tfc.Alloy;
 ```
 
 
 ## Implemented Interfaces
-alloy implements the following interfaces. That means all methods defined in these interfaces are also available in alloy
+Alloy implements the following interfaces. That means all methods defined in these interfaces are also available in Alloy
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ alloy implements the following interfaces. That means all methods defined in the
 :::group{name=addJsonRecipe}
 
 ```zenscript
-alloy.addJsonRecipe(name as string, mapData as MapData)
+Alloy.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ alloy.addJsonRecipe(name as string, mapData as MapData)
 Add an alloy recipe
 
 ```zenscript
-// alloy.addRecipe(name as string, consumer as Consumer<alloy_builder>)
+// Alloy.addRecipe(name as string, consumer as Consumer<AlloyBuilder>)
 
 <recipetype:tfc:alloy>.addRecipe("alloy_test", (alloy) => {
     alloy.add("tfc:tin", 0.08, 0.12);
@@ -47,10 +47,10 @@ Add an alloy recipe
  });
 ```
 
-| Parameter |                              Type                              | Description |
-|-----------|----------------------------------------------------------------|-------------|
-| name      | string                                                         | recipe name |
-| consumer  | Consumer&lt;[alloy_builder](/mods/TFCTweaker/AlloyBuilder)&gt; | builder     |
+| Parameter |                             Type                              | Description |
+|-----------|---------------------------------------------------------------|-------------|
+| name      | string                                                        | recipe name |
+| consumer  | Consumer&lt;[AlloyBuilder](/mods/TFCTweaker/AlloyBuilder)&gt; | builder     |
 
 
 :::
@@ -60,7 +60,7 @@ Add an alloy recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// alloy.getAllRecipes() as stdlib.List<T>
+// Alloy.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:alloy>.getAllRecipes();
 ```
@@ -72,7 +72,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-alloy.getRecipeByName(name as string) as T
+Alloy.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -87,7 +87,7 @@ alloy.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// alloy.getRecipeMap() as T[ResourceLocation]
+// Alloy.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:alloy>.getRecipeMap();
 ```
@@ -99,7 +99,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-alloy.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+Alloy.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -112,7 +112,7 @@ alloy.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-alloy.remove(output as IIngredient)
+Alloy.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -125,7 +125,7 @@ alloy.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// alloy.removeAll()
+// Alloy.removeAll()
 
 <recipetype:tfc:alloy>.removeAll();
 ```
@@ -135,7 +135,7 @@ alloy.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-alloy.removeByInput(input as IItemStack)
+Alloy.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -148,7 +148,7 @@ alloy.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-alloy.removeByModid(modid as string, exclude as Predicate<string>)
+Alloy.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -162,7 +162,7 @@ alloy.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-alloy.removeByName(names as string[])
+Alloy.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -175,7 +175,7 @@ alloy.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-alloy.removeByRegex(regex as string, exclude as Predicate<string>)
+Alloy.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

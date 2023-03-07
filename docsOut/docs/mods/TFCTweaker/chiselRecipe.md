@@ -1,15 +1,15 @@
-# chisel
+# Chisel
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.chisel;
+import mods.tfc.Chisel;
 ```
 
 
 ## Implemented Interfaces
-chisel implements the following interfaces. That means all methods defined in these interfaces are also available in chisel
+Chisel implements the following interfaces. That means all methods defined in these interfaces are also available in Chisel
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ chisel implements the following interfaces. That means all methods defined in th
 :::group{name=addJsonRecipe}
 
 ```zenscript
-chisel.addJsonRecipe(name as string, mapData as MapData)
+Chisel.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ chisel.addJsonRecipe(name as string, mapData as MapData)
 Add a chisel recipe to convert a block to another when using a chisel and hammer in the offhand
 
 ```zenscript
-chisel.addRecipe(name as string, input as BlockIngredient, output as Block, mode as ChiselMode, extraDrop as ItemStackProvider, itemIngredient as IIngredient)
+Chisel.addRecipe(name as string, input as BlockIngredient, output as Block, mode as ChiselMode, extraDrop as ItemStackProvider, itemIngredient as IIngredient)
 ```
 
 |   Parameter    |                            Type                             |                          Description                          | Optional |
@@ -42,7 +42,7 @@ chisel.addRecipe(name as string, input as BlockIngredient, output as Block, mode
 | name           | string                                                      | the name of the recipe                                        | false    |
 | input          | [BlockIngredient](/mods/TFCTweaker/api/BlockIngredient)     | block/tag of blocks                                           | false    |
 | output         | [Block](/vanilla/api/block/Block)                           | the output item                                               | false    |
-| mode           | [ChiselMode](/mods/TFCTweaker/recipe/ChiselMode)            | the mode used for the recipe(smooth/stair/slab)               | false    |
+| mode           | [ChiselMode](/mods/TFCTweaker/Api/Expansion/ChiselMode)     | the mode used for the recipe(smooth/stair/slab)               | false    |
 | extraDrop      | [ItemStackProvider](/mods/TFCTweaker/Api/ItemStackProvider) | extra blocks/items dropped from the block after the operation | false    |
 | itemIngredient | [IIngredient](/vanilla/api/ingredient/IIngredient)          | ingredient                                                    | true     |
 
@@ -54,7 +54,7 @@ chisel.addRecipe(name as string, input as BlockIngredient, output as Block, mode
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// chisel.getAllRecipes() as stdlib.List<T>
+// Chisel.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:chisel>.getAllRecipes();
 ```
@@ -66,7 +66,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-chisel.getRecipeByName(name as string) as T
+Chisel.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -81,7 +81,7 @@ chisel.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// chisel.getRecipeMap() as T[ResourceLocation]
+// Chisel.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:chisel>.getRecipeMap();
 ```
@@ -93,7 +93,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-chisel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+Chisel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -106,7 +106,7 @@ chisel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-chisel.remove(output as IIngredient)
+Chisel.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -119,7 +119,7 @@ chisel.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// chisel.removeAll()
+// Chisel.removeAll()
 
 <recipetype:tfc:chisel>.removeAll();
 ```
@@ -129,7 +129,7 @@ chisel.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-chisel.removeByInput(input as IItemStack)
+Chisel.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -142,7 +142,7 @@ chisel.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-chisel.removeByModid(modid as string, exclude as Predicate<string>)
+Chisel.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -156,7 +156,7 @@ chisel.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-chisel.removeByName(names as string[])
+Chisel.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -169,7 +169,7 @@ chisel.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-chisel.removeByRegex(regex as string, exclude as Predicate<string>)
+Chisel.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

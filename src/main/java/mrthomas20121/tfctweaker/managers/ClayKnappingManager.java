@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
 import com.google.gson.JsonSyntaxException;
+import mrthomas20121.tfctweaker.Constants;
 import net.dries007.tfc.common.recipes.ChiselRecipe;
 import net.dries007.tfc.common.recipes.KnappingRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeSerializers;
@@ -21,7 +22,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:clay_knapping>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.clay_knapping")
+@ZenCodeType.Name(Constants.CLASS_CLAY_KNAPPING)
 @Document("mods/TFCTweaker/ClayKnappingRecipe")
 public class ClayKnappingManager implements IRecipeManager<KnappingRecipe> {
 

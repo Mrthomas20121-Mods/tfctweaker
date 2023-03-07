@@ -7,6 +7,7 @@ import com.blamejared.crafttweaker.api.fluid.IFluidStack;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker_annotations.annotations.Document;
+import mrthomas20121.tfctweaker.Constants;
 import mrthomas20121.tfctweaker.api.ingredient.TFCFluidIngredient;
 import net.dries007.tfc.common.recipes.BlastFurnaceRecipe;
 import net.dries007.tfc.common.recipes.TFCRecipeTypes;
@@ -24,7 +25,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:blast_furnace>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.blast_furnace")
+@ZenCodeType.Name(Constants.CLASS_BLAST_FURNACE)
 @Document("mods/TFCTweaker/BlastFurnaceRecipe")
 public class BlastFurnaceManager implements IRecipeManager<BlastFurnaceRecipe> {
 

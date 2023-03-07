@@ -27,7 +27,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:heating>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.heating")
+@ZenCodeType.Name(Constants.CLASS_HEATING)
 @Document("mods/TFCTweaker/HeatingManager")
 public class HeatingManager implements IRecipeManager<HeatingRecipe> {
 

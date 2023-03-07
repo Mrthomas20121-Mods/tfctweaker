@@ -28,7 +28,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:barrel_instant>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.instant_barrel")
+@ZenCodeType.Name(Constants.CLASS_INSTANT_BARREL)
 @Document("mods/TFCTweaker/InstantBarrelRecipe")
 public class InstantBarrelManager implements IRecipeManager<InstantBarrelRecipe> {
 

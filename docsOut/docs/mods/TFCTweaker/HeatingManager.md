@@ -1,4 +1,4 @@
-# heating
+# Heating
 
 TFC Heating Recipes
 
@@ -6,12 +6,12 @@ TFC Heating Recipes
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.heating;
+import mods.tfc.Heating;
 ```
 
 
 ## Implemented Interfaces
-heating implements the following interfaces. That means all methods defined in these interfaces are also available in heating
+Heating implements the following interfaces. That means all methods defined in these interfaces are also available in Heating
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -20,7 +20,7 @@ heating implements the following interfaces. That means all methods defined in t
 :::group{name=addJsonRecipe}
 
 ```zenscript
-heating.addJsonRecipe(name as string, mapData as MapData)
+Heating.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -36,7 +36,7 @@ heating.addJsonRecipe(name as string, mapData as MapData)
 add a heating recipe
 
 ```zenscript
-// heating.addRecipe(name as string, input as IIngredient, output as IItemStack, outputFluid as IFluidStack, temp as float, useDurability as boolean)
+// Heating.addRecipe(name as string, input as IIngredient, output as IItemStack, outputFluid as IFluidStack, temp as float, useDurability as boolean)
 
 <recipetype:tfc:heating>.addRecipe("heating_test2", <item:tfc:metal/ingot/copper>, ItemStackProvider.empty(), <fluid:tfc:metal/copper>*100, 500, false);
 ```
@@ -58,7 +58,7 @@ add a heating recipe
 add a heating recipe
 
 ```zenscript
-// heating.addRecipe(name as string, input as IIngredient, output as ItemStackProvider, outputFluid as IFluidStack, temp as float, useDurability as boolean)
+// Heating.addRecipe(name as string, input as IIngredient, output as ItemStackProvider, outputFluid as IFluidStack, temp as float, useDurability as boolean)
 
 <recipetype:tfc:heating>.addRecipe("heating_test", <item:tfc:metal/ingot/copper>, ItemStackProvider.empty(), <fluid:tfc:metal/copper>*100, 500, false);
 ```
@@ -80,7 +80,7 @@ add a heating recipe
 add a heating recipe
 
 ```zenscript
-// heating.addRecipe(name as string, input as IIngredient, output as ItemStackProvider, outputMetal as metal, amount as int, temp as float, useDurability as boolean)
+// Heating.addRecipe(name as string, input as IIngredient, output as ItemStackProvider, outputMetal as metal, amount as int, temp as float, useDurability as boolean)
 
 <recipetype:tfc:heating>.addRecipe("heating_test", <item:tfc:metal/ingot/copper>, ItemStackProvider.empty(), <metal:tfc:copper>, 100, 500, false);
 ```
@@ -90,7 +90,7 @@ add a heating recipe
 | name          | string                                                      | name of the recipe                                                                        | false    |               |
 | input         | [IIngredient](/vanilla/api/ingredient/IIngredient)          | input item                                                                                | false    |               |
 | output        | [ItemStackProvider](/mods/TFCTweaker/Api/ItemStackProvider) | output item(can be null)                                                                  | false    |               |
-| outputMetal   | [metal](/mods/TFCTweaker/api/Metal)                         | output metal                                                                              | false    |               |
+| outputMetal   | [metal](/mods/TFCTweaker/Api/Expansion/Metal)               | output metal                                                                              | false    |               |
 | amount        | int                                                         | amount of metal                                                                           | false    |               |
 | temp          | float                                                       | temp when the input become the output                                                     | false    |               |
 | useDurability | boolean                                                     | tell if the recipe should use the item durability(if it has durability, default to false) | true     | false         |
@@ -103,7 +103,7 @@ add a heating recipe
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// heating.getAllRecipes() as stdlib.List<T>
+// Heating.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:heating>.getAllRecipes();
 ```
@@ -115,7 +115,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-heating.getRecipeByName(name as string) as T
+Heating.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -130,7 +130,7 @@ heating.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// heating.getRecipeMap() as T[ResourceLocation]
+// Heating.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:heating>.getRecipeMap();
 ```
@@ -142,7 +142,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-heating.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+Heating.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -155,7 +155,7 @@ heating.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-heating.remove(output as IIngredient)
+Heating.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -168,7 +168,7 @@ heating.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// heating.removeAll()
+// Heating.removeAll()
 
 <recipetype:tfc:heating>.removeAll();
 ```
@@ -178,7 +178,7 @@ heating.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-heating.removeByInput(input as IItemStack)
+Heating.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -191,7 +191,7 @@ heating.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-heating.removeByModid(modid as string, exclude as Predicate<string>)
+Heating.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -205,7 +205,7 @@ heating.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-heating.removeByName(names as string[])
+Heating.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -218,7 +218,7 @@ heating.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-heating.removeByRegex(regex as string, exclude as Predicate<string>)
+Heating.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

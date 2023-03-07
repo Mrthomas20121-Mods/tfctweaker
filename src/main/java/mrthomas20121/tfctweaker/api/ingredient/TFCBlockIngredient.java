@@ -11,7 +11,7 @@ import org.openzen.zencode.java.ZenCodeType;
 
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_BLOCK_INGREDIENT)
-@Document("mods/TFCTweaker/api/BlockIngredient")
+@Document("mods/TFCTweaker/Api/BlockIngredient")
 public class TFCBlockIngredient {
 
     private final BlockIngredient internal;

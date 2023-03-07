@@ -21,7 +21,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:rock_knapping>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.rock_knapping")
+@ZenCodeType.Name(Constants.CLASS_ROCK_KNAPPING)
 @Document("mods/TFCTweaker/RockKnappingRecipe")
 public class RockKnappingManager implements IRecipeManager<RockKnappingRecipe> {
 

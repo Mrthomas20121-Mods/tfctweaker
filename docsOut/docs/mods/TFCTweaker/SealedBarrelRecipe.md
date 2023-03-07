@@ -1,15 +1,15 @@
-# barrel_sealed
+# SealedBarrel
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.barrel_sealed;
+import mods.tfc.SealedBarrel;
 ```
 
 
 ## Implemented Interfaces
-barrel_sealed implements the following interfaces. That means all methods defined in these interfaces are also available in barrel_sealed
+SealedBarrel implements the following interfaces. That means all methods defined in these interfaces are also available in SealedBarrel
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ barrel_sealed implements the following interfaces. That means all methods define
 :::group{name=addJsonRecipe}
 
 ```zenscript
-barrel_sealed.addJsonRecipe(name as string, mapData as MapData)
+SealedBarrel.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ barrel_sealed.addJsonRecipe(name as string, mapData as MapData)
 Add an instant barrel recipe
 
 ```zenscript
-barrel_sealed.addRecipe(name as string, duration as int, input as invalid, fluidIngredient as invalid, output as invalid, outputFluid as IFluidStack, event as SoundEvent, onSeal as invalid, onUnseal as invalid)
+SealedBarrel.addRecipe(name as string, duration as int, input as invalid, fluidIngredient as invalid, output as invalid, outputFluid as IFluidStack, event as SoundEvent, onSeal as invalid, onUnseal as invalid)
 ```
 
 |    Parameter    |                    Type                     |                           Description                            |
@@ -57,7 +57,7 @@ barrel_sealed.addRecipe(name as string, duration as int, input as invalid, fluid
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// barrel_sealed.getAllRecipes() as stdlib.List<T>
+// SealedBarrel.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:barrel_sealed>.getAllRecipes();
 ```
@@ -69,7 +69,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-barrel_sealed.getRecipeByName(name as string) as T
+SealedBarrel.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -84,7 +84,7 @@ barrel_sealed.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// barrel_sealed.getRecipeMap() as T[ResourceLocation]
+// SealedBarrel.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:barrel_sealed>.getRecipeMap();
 ```
@@ -96,7 +96,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-barrel_sealed.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+SealedBarrel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -109,7 +109,7 @@ barrel_sealed.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-barrel_sealed.remove(output as IIngredient)
+SealedBarrel.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -122,7 +122,7 @@ barrel_sealed.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// barrel_sealed.removeAll()
+// SealedBarrel.removeAll()
 
 <recipetype:tfc:barrel_sealed>.removeAll();
 ```
@@ -132,7 +132,7 @@ barrel_sealed.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-barrel_sealed.removeByInput(input as IItemStack)
+SealedBarrel.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -145,7 +145,7 @@ barrel_sealed.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-barrel_sealed.removeByModid(modid as string, exclude as Predicate<string>)
+SealedBarrel.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -159,7 +159,7 @@ barrel_sealed.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-barrel_sealed.removeByName(names as string[])
+SealedBarrel.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -172,7 +172,7 @@ barrel_sealed.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-barrel_sealed.removeByRegex(regex as string, exclude as Predicate<string>)
+SealedBarrel.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

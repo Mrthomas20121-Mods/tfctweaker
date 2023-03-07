@@ -1,15 +1,15 @@
-# instant_barrel
+# InstantBarrel
 
 ## Importing the class
 
 It might be required for you to import the package if you encounter any issues (like casting an Array), so better be safe than sorry and add the import at the very top of the file.
 ```zenscript
-import mods.tfc.instant_barrel;
+import mods.tfc.InstantBarrel;
 ```
 
 
 ## Implemented Interfaces
-instant_barrel implements the following interfaces. That means all methods defined in these interfaces are also available in instant_barrel
+InstantBarrel implements the following interfaces. That means all methods defined in these interfaces are also available in InstantBarrel
 
 - [IRecipeManager](/vanilla/api/recipe/manager/IRecipeManager)
 
@@ -18,7 +18,7 @@ instant_barrel implements the following interfaces. That means all methods defin
 :::group{name=addJsonRecipe}
 
 ```zenscript
-instant_barrel.addJsonRecipe(name as string, mapData as MapData)
+InstantBarrel.addJsonRecipe(name as string, mapData as MapData)
 ```
 
 | Parameter |                 Type                 |
@@ -34,7 +34,7 @@ instant_barrel.addJsonRecipe(name as string, mapData as MapData)
 Add an instant barrel recipe
 
 ```zenscript
-instant_barrel.addRecipe(name as string, input as IIngredientWithAmount, inputFluid as FluidIngredient, output as ItemStackProvider, outputFluid as IFluidStack, event as SoundEvent)
+InstantBarrel.addRecipe(name as string, input as IIngredientWithAmount, inputFluid as FluidIngredient, output as ItemStackProvider, outputFluid as IFluidStack, event as SoundEvent)
 ```
 
 |  Parameter  |                                  Type                                  |                           Description                            | Optional |
@@ -54,7 +54,7 @@ instant_barrel.addRecipe(name as string, input as IIngredientWithAmount, inputFl
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-// instant_barrel.getAllRecipes() as stdlib.List<T>
+// InstantBarrel.getAllRecipes() as stdlib.List<T>
 
 <recipetype:tfc:barrel_instant>.getAllRecipes();
 ```
@@ -66,7 +66,7 @@ Return Type: stdlib.List&lt;T&gt;
 Return Type: T
 
 ```zenscript
-instant_barrel.getRecipeByName(name as string) as T
+InstantBarrel.getRecipeByName(name as string) as T
 ```
 
 | Parameter |  Type  |
@@ -81,7 +81,7 @@ instant_barrel.getRecipeByName(name as string) as T
 Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 
 ```zenscript
-// instant_barrel.getRecipeMap() as T[ResourceLocation]
+// InstantBarrel.getRecipeMap() as T[ResourceLocation]
 
 <recipetype:tfc:barrel_instant>.getRecipeMap();
 ```
@@ -93,7 +93,7 @@ Return Type: T[[ResourceLocation](/vanilla/api/resource/ResourceLocation)]
 Return Type: stdlib.List&lt;T&gt;
 
 ```zenscript
-instant_barrel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
+InstantBarrel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 ```
 
 | Parameter |                        Type                        |
@@ -106,7 +106,7 @@ instant_barrel.getRecipesByOutput(output as IIngredient) as stdlib.List<T>
 :::group{name=remove}
 
 ```zenscript
-instant_barrel.remove(output as IIngredient)
+InstantBarrel.remove(output as IIngredient)
 ```
 
 | Parameter |                        Type                        |
@@ -119,7 +119,7 @@ instant_barrel.remove(output as IIngredient)
 :::group{name=removeAll}
 
 ```zenscript
-// instant_barrel.removeAll()
+// InstantBarrel.removeAll()
 
 <recipetype:tfc:barrel_instant>.removeAll();
 ```
@@ -129,7 +129,7 @@ instant_barrel.remove(output as IIngredient)
 :::group{name=removeByInput}
 
 ```zenscript
-instant_barrel.removeByInput(input as IItemStack)
+InstantBarrel.removeByInput(input as IItemStack)
 ```
 
 | Parameter |                    Type                    |
@@ -142,7 +142,7 @@ instant_barrel.removeByInput(input as IItemStack)
 :::group{name=removeByModid}
 
 ```zenscript
-instant_barrel.removeByModid(modid as string, exclude as Predicate<string>)
+InstantBarrel.removeByModid(modid as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |
@@ -156,7 +156,7 @@ instant_barrel.removeByModid(modid as string, exclude as Predicate<string>)
 :::group{name=removeByName}
 
 ```zenscript
-instant_barrel.removeByName(names as string[])
+InstantBarrel.removeByName(names as string[])
 ```
 
 | Parameter |   Type   |
@@ -169,7 +169,7 @@ instant_barrel.removeByName(names as string[])
 :::group{name=removeByRegex}
 
 ```zenscript
-instant_barrel.removeByRegex(regex as string, exclude as Predicate<string>)
+InstantBarrel.removeByRegex(regex as string, exclude as Predicate<string>)
 ```
 
 | Parameter |          Type           | Optional |           Default Value           |

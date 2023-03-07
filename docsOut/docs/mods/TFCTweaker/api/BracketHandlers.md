@@ -12,10 +12,10 @@ import tfc.api.bracket.handler;
 
 :::group{name=getMetal}
 
-Gets a [metal](/mods/TFCTweaker/api/Metal) instance. Throws an Exception if not found
+Gets a [metal](/mods/TFCTweaker/Api/Expansion/Metal) instance. Throws an Exception if not found
 
-Returns: The found [metal](/mods/TFCTweaker/api/Metal)  
-Return Type: [metal](/mods/TFCTweaker/api/Metal)
+Returns: The found [metal](/mods/TFCTweaker/Api/Expansion/Metal)  
+Return Type: [metal](/mods/TFCTweaker/Api/Expansion/Metal)
 
 ```zenscript
 <metal:tfc:copper>

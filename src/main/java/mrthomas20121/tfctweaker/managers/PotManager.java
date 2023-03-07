@@ -24,7 +24,7 @@ import java.util.Arrays;
  * @docParam this <recipetype:tfc:pot>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.pot")
+@ZenCodeType.Name(Constants.CLASS_POT)
 @Document("mods/TFCTweaker/PotRecipe")
 public class PotManager implements IRecipeManager<PotRecipe> {
     @Override

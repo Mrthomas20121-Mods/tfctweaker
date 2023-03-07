@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_FLUID_INGREDIENT)
-@Document("mods/TFCTweaker/api/FluidStackIngredient")
+@Document("mods/TFCTweaker/Api/FluidStackIngredient")
 public class TFCFluidIngredient {
 
     private final FluidStackIngredient ingredient;

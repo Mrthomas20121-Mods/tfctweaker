@@ -12,7 +12,7 @@ import java.util.Locale;
 
 @ZenRegister
 @NativeTypeRegistration(value = ChiselRecipe.Mode.class, zenCodeName = Constants.CLASS_EXPAND_CHISEL_MODE)
-@Document("mods/TFCTweaker/recipe/ChiselMode")
+@Document("mods/TFCTweaker/Api/Expansion/ChiselMode")
 @BracketEnum(Constants.BRACKET_ENUM_CHISEL)
 public class ExpandChiselMode {
 

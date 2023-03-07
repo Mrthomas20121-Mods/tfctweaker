@@ -18,7 +18,7 @@ import org.openzen.zencode.java.ZenCodeType;
  * @docParam this <recipetype:tfc:quern>
  */
 @ZenRegister
-@ZenCodeType.Name("mods.tfc.quern")
+@ZenCodeType.Name(Constants.CLASS_QUERN)
 @Document("mods/TFCTweaker/QuernManager")
 public class QuernManager implements IRecipeManager<QuernRecipe> {
 
