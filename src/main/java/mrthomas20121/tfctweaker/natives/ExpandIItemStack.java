@@ -24,7 +24,7 @@ public class ExpandIItemStack {
      *
      * @docParam trait "salted"
      */
-    @ZenCodeType.Method
+    @ZenCodeType.StaticExpansionMethod
     public static IItemStack applyFoodTrait(IItemStack self, String trait) {
         return new MCItemStack(FoodCapability.applyTrait(self.getInternal(), Objects.requireNonNull(FoodTrait.getTrait(new ResourceLocation(trait)))));
     }

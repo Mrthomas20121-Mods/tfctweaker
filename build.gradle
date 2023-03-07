@@ -138,3 +138,7 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+compileJava {
+    options.compilerArgs << "-Acrafttweaker.processor.document.output_directory=${file('docsOut')}"
+}
