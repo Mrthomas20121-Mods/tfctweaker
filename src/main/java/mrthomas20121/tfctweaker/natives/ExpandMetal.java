@@ -26,6 +26,10 @@ import java.util.Locale;
 @NativeTypeRegistration(value = Metal.class, zenCodeName = Constants.CLASS_EXPAND_METAL)
 @Document("mods/TFCTweaker/Api/Expansion/Metal")
 public class ExpandMetal {
+    /**
+     * Get all the registered metals
+     * @return an array containing all registered metals
+     */
     @ZenCodeType.StaticExpansionMethod
     public static Metal[] getAllMetals() {
         return Metal.MANAGER.getValues().toArray(new Metal[] {});
@@ -55,24 +59,24 @@ public class ExpandMetal {
      * @param amount amount
      * @return
      *
+     * @docParam this <metal:tfc:copper>
      * @docParam amount 100
      */
     @ZenCodeType.Method
-    @ZenCodeType.StaticExpansionMethod
     public static IFluidStack getFluidStack(Metal internal, int amount) {
         return new MCFluidStack(new FluidStack(internal.getFluid(), amount));
     }
 
     /**
-     * get a metal part
+     * return the item corresponding to that metal part
      * @param internal internal metal
      * @param partName metal part name
      * @return
      *
+     * @docParam this <tfc:metal:copper>
      * @docParam partName "ingot"
      */
     @ZenCodeType.Method
-    @ZenCodeType.StaticExpansionMethod
     public static IItemStack getMetalPart(Metal internal, String partName) {
         String finalName = "%s:metal/%s/%s".formatted(internal.getId().getNamespace(), partName, internal.getId().getPath());
         Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(finalName));

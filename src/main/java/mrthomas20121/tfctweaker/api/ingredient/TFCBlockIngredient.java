@@ -20,16 +20,37 @@ public class TFCBlockIngredient {
         this.internal = ingredient;
     }
 
+    /**
+     * Create a block ingredient from a block
+     * @param block block
+     * @return
+     *
+     * @docParam block <block:minecraft:dirt>
+     */
     @ZenCodeType.Method
     public static TFCBlockIngredient of(Block block) {
         return new TFCBlockIngredient(BlockIngredients.of(block));
     }
 
+    /**
+     * Create a block from an array of blocks
+     * @param blocks array of blocks
+     * @return
+     *
+     * @docParam blocks [<block:minecraft:dirt>, <block:minecraft:stone>]
+     */
     @ZenCodeType.Method
     public static TFCBlockIngredient of(Block[] blocks) {
         return new TFCBlockIngredient(BlockIngredients.of(blocks));
     }
 
+    /**
+     * Create a block ingredient from a block tag
+     * @param tag block tag
+     * @return
+     * 
+     * @docParam tag <tag:blocks:minecraft:sand>
+     */
     @ZenCodeType.Method
     public static TFCBlockIngredient of(KnownTag<Block> tag) {
         return new TFCBlockIngredient(BlockIngredients.of(tag.getTagKey()));

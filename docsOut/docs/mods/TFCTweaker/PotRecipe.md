@@ -43,7 +43,7 @@ Add a pot recipe
 |-------------|--------------------------------------------------------------|---------------------------------|
 | name        | string                                                       | name of the recipe              |
 | ingredients | [IIngredient](/vanilla/api/ingredient/IIngredient)[]         | array of input ingredient       |
-| fluid       | [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient) | input fluid                     |
+| fluid       | [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient) | input fluid                     |
 | duration    | int                                                          | time the recipe take            |
 | minTemp     | float                                                        | temp min required by the recipe |
 | outputFluid | [IFluidStack](/forge/api/fluid/IFluidStack)                  | output fluid                    |
@@ -65,7 +65,7 @@ Add a pot recipe
 |-------------|--------------------------------------------------------------|---------------------------------|
 | name        | string                                                       | name of the recipe              |
 | ingredients | [IIngredient](/vanilla/api/ingredient/IIngredient)[]         | ingredients                     |
-| fluid       | [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient) | input fluid                     |
+| fluid       | [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient) | input fluid                     |
 | duration    | int                                                          | duration                        |
 | minTemp     | float                                                        | temp min required by the recipe |
 | outputFluid | [IFluidStack](/forge/api/fluid/IFluidStack)                  | output fluid                    |

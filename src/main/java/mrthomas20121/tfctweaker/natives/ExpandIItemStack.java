@@ -19,13 +19,14 @@ public class ExpandIItemStack {
 
     /**
      * Apply a food trait to the stack
-     * @param self this
+     * @param self IItemStack
      * @param trait the trait we are adding to it
      * @return
      *
+     * @docParam this <item:tfc:apple>
      * @docParam trait "salted"
      */
-    @ZenCodeType.StaticExpansionMethod
+    @ZenCodeType.Method
     public static IItemStack applyFoodTrait(IItemStack self, String trait) {
         return new MCItemStack(FoodCapability.applyTrait(self.getInternal(), Objects.requireNonNull(FoodTrait.getTrait(new ResourceLocation(trait)))));
     }

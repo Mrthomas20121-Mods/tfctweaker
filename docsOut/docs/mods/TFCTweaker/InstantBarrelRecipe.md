@@ -41,7 +41,7 @@ InstantBarrel.addRecipe(name as string, input as IIngredientWithAmount, inputFlu
 |-------------|------------------------------------------------------------------------|------------------------------------------------------------------|----------|
 | name        | string                                                                 | name of the recipe                                               | false    |
 | input       | [IIngredientWithAmount](/vanilla/api/ingredient/IIngredientWithAmount) | item input                                                       | false    |
-| inputFluid  | [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient)           | fluid input, can be empty                                        | false    |
+| inputFluid  | [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient)           | fluid input, can be empty                                        | false    |
 | output      | [ItemStackProvider](/mods/TFCTweaker/Api/ItemStackProvider)            | item output                                                      | false    |
 | outputFluid | [IFluidStack](/forge/api/fluid/IFluidStack)                            | fluid ouput                                                      | false    |
 | event       | [SoundEvent](/vanilla/api/sound/SoundEvent)                            | the sound to play when it is done, default to BREWING_STAND_BREW | true     |

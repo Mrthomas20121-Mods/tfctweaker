@@ -1,6 +1,6 @@
 # Expansion for IItemStack
 
-## Static Methods
+## Methods
 
 :::group{name=applyFoodTrait}
 
@@ -10,14 +10,16 @@ Returns:
 Return Type: [IItemStack](/vanilla/api/item/IItemStack)
 
 ```zenscript
-IItemStack.applyFoodTrait(self as IItemStack, trait as string) as IItemStack
+// IItemStack.applyFoodTrait(trait as string) as IItemStack
+
+<item:tfc:apple>.applyFoodTrait("salted");
 ```
 
-| Parameter |                    Type                    |          Description          |
-|-----------|--------------------------------------------|-------------------------------|
-| self      | [IItemStack](/vanilla/api/item/IItemStack) | this                          |
-| trait     | string                                     | the trait we are adding to it |
+| Parameter |  Type  |          Description          |
+|-----------|--------|-------------------------------|
+| trait     | string | the trait we are adding to it |
 
 
 :::
+
 

@@ -42,7 +42,7 @@ Add a Blast furnace recipe
 | Parameter |                             Type                             |         Description          |
 |-----------|--------------------------------------------------------------|------------------------------|
 | name      | string                                                       | name of the recipe           |
-| input     | [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient) | fluid input                  |
+| input     | [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient) | fluid input                  |
 | catalyst  | [IIngredient](/vanilla/api/ingredient/IIngredient)           | catalyst used for the recipe |
 | output    | [IFluidStack](/forge/api/fluid/IFluidStack)                  | fluid output                 |
 

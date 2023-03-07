@@ -80,27 +80,6 @@ public class HeatingManager implements IRecipeManager<HeatingRecipe> {
         addRecipe(Constants.identifier(name), input.asVanillaIngredient(), output.getInternal(), new FluidStack(outputMetal.getFluid(), amount), temp, useDurability);
     }
 
-    /**
-     * add a heating recipe
-     * @param name name of the recipe
-     * @param input input item
-     * @param output output item(can be null)
-     * @param outputFluid output fluid
-     * @param temp temp when the input become the output
-     * @param useDurability tell if the recipe should use the item durability(if it has durability, default to false)
-     *
-     * @docParam name "heating_test2"
-     * @docParam input <item:tfc:metal/ingot/copper>
-     * @docParam output ItemStackProvider.empty()
-     * @docParam outputFluid <fluid:tfc:metal/copper>*100
-     * @docParam temp 500
-     * @docParam useDurability false
-     */
-    @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input, IItemStack output, IFluidStack outputFluid, float temp, @ZenCodeType.OptionalBoolean boolean useDurability) {
-        addRecipe(Helpers.identifier(name), input.asVanillaIngredient(), ItemStackProvider.of(output.getInternal()), outputFluid.getInternal(), temp, useDurability);
-    }
-
     public void addRecipe(ResourceLocation name, Ingredient input, ItemStackProvider output, FluidStack outputFluid, float temp, boolean useDurability) {
         HeatingRecipe recipe = new HeatingRecipe(name, input, output, outputFluid, temp, useDurability);
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, recipe, ""));

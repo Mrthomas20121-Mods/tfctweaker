@@ -35,7 +35,7 @@ public class TFCItemStackProvider {
     }
 
     /**
-     * Empty Output
+     * Create an empty ItemStack provider
      * @return TFCItemStackProvider
      */
     @ZenCodeType.Method
@@ -47,32 +47,81 @@ public class TFCItemStackProvider {
      * Create an ItemStackProvider with no Modifier.
      * @param output item output
      * @return TFCItemStackProvider
+     *
+     * @docParam output <item:tfc:metal/double_ingot/copper>
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider none(IItemStack output) {
         return TFCItemStackProvider.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[0]));
     }
 
+    /**
+     * Add or remove a trait from the recipe input item
+     * @param trait name of the trait
+     * @param add true to add the trait, false to remove it
+     * @return
+     *
+     * @docParam trait "salted"
+     * @docParam add false
+     */
     @ZenCodeType.Method
     public static TFCItemStackProvider addRemoveTrait(String trait, boolean add) {
         return TFCItemStackProvider.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyInputModifier.INSTANCE, new AddRemoveTraitModifier(add, FoodTrait.getTrait(new ResourceLocation(trait)))}));
     }
 
+    /**
+     * Add or remove a trait to the output item
+     * @param output item
+     * @param trait name of the trait
+     * @param add true to add the trait, false to remove it
+     * @return
+     *
+     * @docParam output <item:tfc:food/banana>
+     * @docParam trait "salted"
+     * @docParam add true
+     */
+    @ZenCodeType.Method
+    public static TFCItemStackProvider addRemoveTrait(IItemStack output, String trait, boolean add) {
+        return TFCItemStackProvider.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyInputModifier.INSTANCE, new AddRemoveTraitModifier(add, FoodTrait.getTrait(new ResourceLocation(trait)))}));
+    }
+
+    /**
+     * Copy the input item food data to the output
+     * @param output output item
+     * @return
+     *
+     * @docParam output <item:tfc:food/banana>
+     */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyFood(IItemStack output) {
         return TFCItemStackProvider.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyFoodModifier.INSTANCE}));
     }
 
+    /**
+     * Copy the input item heat data to the output
+     * @param output output item
+     * @return
+     *
+     * @docParam output <item:tfc:metal/ingot/copper>
+     */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyHeat(IItemStack output) {
         return TFCItemStackProvider.of(new ItemStackProvider(output.getInternal(), new ItemStackModifier[]{CopyHeatModifier.INSTANCE}));
     }
 
+    /**
+     * Copy the input heat to the output
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyHeat() {
         return TFCItemStackProvider.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyHeatModifier.INSTANCE}));
     }
 
+    /**
+     * Return a copy of the input
+     * @return
+     */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyInput() {
         return TFCItemStackProvider.of(new ItemStackProvider(ItemStack.EMPTY, new ItemStackModifier[]{CopyInputModifier.INSTANCE}));
@@ -80,8 +129,10 @@ public class TFCItemStackProvider {
 
     /**
      * Copy the oldest food from the input and add it to the output item
-     * @param output
-     * @return TFCItemStackProvider
+     * @param output output item
+     * @return
+     *
+     * @docParam output <item:tfc:food/banana>
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyOldestFood(IItemStack output) {
@@ -90,8 +141,10 @@ public class TFCItemStackProvider {
 
     /**
      * Copy the input forging bonus.
-     * @param output
+     * @param output output item
      * @return TFCItemStackProvider
+     *
+     * @docParam output <item:tfc:metal/ingot/bronze>
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider copyForgingBonus(IItemStack output) {
@@ -109,8 +162,10 @@ public class TFCItemStackProvider {
 
     /**
      * Reset the output Food data
-     * @param output the output item
-     * @return TFCItemStackProvider
+     * @param output output item
+     * @return
+     *
+     * @docParam output <item:tfc:food/banana>
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider resetFood(IItemStack output) {
@@ -120,8 +175,11 @@ public class TFCItemStackProvider {
     /**
      * Add heat to the output
      * @param output heat item
-     * @param heat
+     * @param heat heat to add to the output
      * @return TFCItemStackProvider
+     *
+     * @docParam output <item:tfc:metal/ingot/copper>
+     * @docParam heat 100
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider addOutputHeat(IItemStack output, float heat) {
@@ -129,9 +187,11 @@ public class TFCItemStackProvider {
     }
 
     /**
-     * Add Heat to the input
-     * @param heat
-     * @return TFCItemStackProvider
+     * Add Heat to the recipe input item
+     * @param heat heat to add to the input
+     * @return
+     *
+     * @docParam heat 100
      */
     @ZenCodeType.Method
     public static TFCItemStackProvider addInputHeat(float heat) {

@@ -40,7 +40,7 @@ Chisel.addRecipe(name as string, input as BlockIngredient, output as Block, mode
 |   Parameter    |                            Type                             |                          Description                          | Optional |
 |----------------|-------------------------------------------------------------|---------------------------------------------------------------|----------|
 | name           | string                                                      | the name of the recipe                                        | false    |
-| input          | [BlockIngredient](/mods/TFCTweaker/api/BlockIngredient)     | block/tag of blocks                                           | false    |
+| input          | [BlockIngredient](/mods/TFCTweaker/Api/BlockIngredient)     | block/tag of blocks                                           | false    |
 | output         | [Block](/vanilla/api/block/Block)                           | the output item                                               | false    |
 | mode           | [ChiselMode](/mods/TFCTweaker/Api/Expansion/ChiselMode)     | the mode used for the recipe(smooth/stair/slab)               | false    |
 | extraDrop      | [ItemStackProvider](/mods/TFCTweaker/Api/ItemStackProvider) | extra blocks/items dropped from the block after the operation | false    |

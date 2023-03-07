@@ -12,9 +12,9 @@ import tfc.api.ingredient.FluidIngredient;
 
 :::group{name=empty}
 
-Empty Fluid Ingredient for when you don't want a fluid input
+Create an empty fluid ingredient
 
-Return Type: [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient)
+Return Type: [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient)
 
 ```zenscript
 // FluidIngredient.empty() as FluidIngredient
@@ -26,51 +26,62 @@ FluidIngredient.empty();
 
 :::group{name=of}
 
-Fluid Ingredient from a fluidstack
+Create a fluid ingredient from a fluidstack
 
-Return Type: [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient)
+Returns:   
+Return Type: [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient)
 
 ```zenscript
-FluidIngredient.of(fluid as IFluidStack) as FluidIngredient
+// FluidIngredient.of(fluid as IFluidStack) as FluidIngredient
+
+FluidIngredient.of(<fluid:tfc:olive_oil>*100);
 ```
 
-| Parameter |                    Type                     |
-|-----------|---------------------------------------------|
-| fluid     | [IFluidStack](/forge/api/fluid/IFluidStack) |
+| Parameter |                    Type                     | Description |
+|-----------|---------------------------------------------|-------------|
+| fluid     | [IFluidStack](/forge/api/fluid/IFluidStack) | Fluidstack  |
 
 
 :::
 
 :::group{name=of}
 
-Fluid Ingredient from a tag
+Create a fluid ingredient from a list of fluids
 
-Return Type: [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient)
+Returns:   
+Return Type: [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient)
 
 ```zenscript
-FluidIngredient.of(fluids as KnownTag<Fluid>, amount as int) as FluidIngredient
+// FluidIngredient.of(fluidStacks as IFluidStack[], amount as int) as FluidIngredient
+
+FluidIngredient.of([<fluid:minecraft:water>, <fluid:minecraft:lava>], 1000);
 ```
 
-| Parameter |                                        Type                                         |
-|-----------|-------------------------------------------------------------------------------------|
-| fluids    | [KnownTag](/vanilla/api/tag/type/KnownTag)&lt;[Fluid](/vanilla/api/fluid/Fluid)&gt; |
-| amount    | int                                                                                 |
+|  Parameter  |                     Type                      |   Description   |
+|-------------|-----------------------------------------------|-----------------|
+| fluidStacks | [IFluidStack](/forge/api/fluid/IFluidStack)[] | array of fluids |
+| amount      | int                                           | amount of fluid |
 
 
 :::
 
 :::group{name=of}
 
-Return Type: [FluidIngredient](/mods/TFCTweaker/api/FluidStackIngredient)
+Create a fluid ingredient from a fluid tag
+
+Returns:   
+Return Type: [FluidIngredient](/mods/TFCTweaker/Api/FluidStackIngredient)
 
 ```zenscript
-FluidIngredient.of(stack as IFluidStack[], amount as int) as FluidIngredient
+// FluidIngredient.of(fluids as KnownTag<Fluid>, amount as int) as FluidIngredient
+
+FluidIngredient.of(<tag:fluids:minecraft:water>, 100);
 ```
 
-| Parameter |                     Type                      |
-|-----------|-----------------------------------------------|
-| stack     | [IFluidStack](/forge/api/fluid/IFluidStack)[] |
-| amount    | int                                           |
+| Parameter |                                        Type                                         |   Description   |
+|-----------|-------------------------------------------------------------------------------------|-----------------|
+| fluids    | [KnownTag](/vanilla/api/tag/type/KnownTag)&lt;[Fluid](/vanilla/api/fluid/Fluid)&gt; | tag of fluids   |
+| amount    | int                                                                                 | amount of fluid |
 
 
 :::
