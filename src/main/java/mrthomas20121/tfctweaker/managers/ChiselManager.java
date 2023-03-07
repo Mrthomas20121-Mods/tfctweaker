@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  */
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_CHISEL)
-@Document("mods/TFCTweaker/chiselRecipe")
+@Document("mods/TFCTweaker/ChiselRecipe")
 public class ChiselManager implements IRecipeManager<ChiselRecipe> {
 
     @Override

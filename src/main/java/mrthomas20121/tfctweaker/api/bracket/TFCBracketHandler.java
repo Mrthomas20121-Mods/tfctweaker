@@ -14,7 +14,6 @@ import java.util.Locale;
 
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_BRACKET_HANDLER)
-@Document("mods/TFCTweaker/api/BracketHandlers")
 public class TFCBracketHandler {
 
     /**

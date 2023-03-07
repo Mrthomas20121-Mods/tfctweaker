@@ -44,6 +44,7 @@ public class LoomManager implements IRecipeManager<LoomRecipe> {
      * @docParam stepsRequired 10
      * @docParam inProgressTexture "tfc:block/burlap"
      */
+    @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input, TFCItemStackProvider output, int inputCount, int stepsRequired, String inProgressTexture) {
         CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new LoomRecipe(Constants.identifier(name), input.asVanillaIngredient(), output.getInternal(), inputCount, stepsRequired, new ResourceLocation(inProgressTexture))));
 

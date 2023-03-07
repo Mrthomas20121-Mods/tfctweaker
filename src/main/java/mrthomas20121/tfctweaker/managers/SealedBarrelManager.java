@@ -60,8 +60,8 @@ public class SealedBarrelManager implements IRecipeManager<SealedBarrelRecipe> {
      * @docParam event null
      */
     @ZenCodeType.Method
-    public void addRecipe(String name, int duration, ItemStackIngredient input, FluidStackIngredient fluidIngredient, ItemStackProvider output, IFluidStack outputFluid, SoundEvent event, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {
-        addRecipe(Constants.identifier(name), new BarrelRecipe.Builder(input, fluidIngredient, output, outputFluid.getInternal(), event), duration, onSeal, onUnseal);
+    public void addRecipe(String name, int duration, IIngredientWithAmount input, TFCFluidIngredient fluidIngredient, TFCItemStackProvider output, IFluidStack outputFluid, SoundEvent event, @Nullable TFCItemStackProvider onSeal, @Nullable TFCItemStackProvider onUnseal) {
+        addRecipe(Constants.identifier(name), new BarrelRecipe.Builder(new ItemStackIngredient(input.getIngredient().asVanillaIngredient(), input.getAmount()), fluidIngredient.getIngredient(), output.getInternal(), outputFluid.getInternal(), event), duration, onSeal.getInternal(), onUnseal.getInternal());
     }
 
     private void addRecipe(ResourceLocation id, BarrelRecipe.Builder builder, int duration, @Nullable ItemStackProvider onSeal, @Nullable ItemStackProvider onUnseal) {

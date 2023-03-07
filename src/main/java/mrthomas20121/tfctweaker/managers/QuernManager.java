@@ -19,7 +19,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_QUERN)
-@Document("mods/TFCTweaker/QuernManager")
+@Document("mods/TFCTweaker/QuernRecipe")
 public class QuernManager implements IRecipeManager<QuernRecipe> {
 
     @Override

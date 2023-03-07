@@ -20,6 +20,8 @@ class AlloyBuilder {
 
     private Supplier<Metal> output;
 
+    public AlloyBuilder() {}
+
     /**
      * add a metal to the alloy
      *

@@ -10,9 +10,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.openzen.zencode.java.ZenCodeType;
 
-@Document("mods/TFCTweaker/Api/ItemStackProvider")
-@ZenRegister()
+@ZenRegister
 @ZenCodeType.Name(Constants.CLASS_ITEMSTACK_PROVIDER)
+@Document("mods/TFCTweaker/Api/Ingredient/ItemStackProvider")
 public class TFCItemStackProvider {
 
     private final ItemStackProvider output;

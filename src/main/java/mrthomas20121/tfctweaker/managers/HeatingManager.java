@@ -28,7 +28,7 @@ import org.openzen.zencode.java.ZenCodeType;
  */
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_HEATING)
-@Document("mods/TFCTweaker/HeatingManager")
+@Document("mods/TFCTweaker/HeatingRecipe")
 public class HeatingManager implements IRecipeManager<HeatingRecipe> {
 
     @Override

@@ -23,7 +23,7 @@ import java.util.function.Supplier;
  */
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_ALLOY)
-@Document("mods/TFCTweaker/AlloyManager")
+@Document("mods/TFCTweaker/AlloyRecipe")
 public class AlloyManager implements IRecipeManager<AlloyRecipe> {
 
     @Override
@@ -38,9 +38,9 @@ public class AlloyManager implements IRecipeManager<AlloyRecipe> {
      *
      * @docParam name "alloy_test"
      * @docParam consumer (alloy) => {
-     *    alloy.add("tfc:tin", 0.08, 0.12);
-     *    alloy.add("tfc:copper", 0.88, 0.92);
-     *    alloy.output("tfc:bronze");
+     *    alloy.Add("tfc:tin", 0.08, 0.12);
+     *    alloy.Add("tfc:copper", 0.88, 0.92);
+     *    alloy.Output("tfc:bronze");
      *    // can also do it this way
      *    // alloy.Add(<metal:tfc:tin>, 0.08, 0.12);
      *    // alloy.Add(<metal:tfc:copper>, 0.88, 0.92);
