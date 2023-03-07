@@ -15,6 +15,11 @@ public class Constants {
     public static final String CLASS_EXPAND_CHISEL_MODE = "tfc.api.ChiselMode";
     public static final String CLASS_EXPAND_FORGE_RULES = "tfc.api.ForgeRule";
 
+    // recipes class
+    public static final String CLASS_ROCK_KNAPPING = "mods.tfc.rock_knapping";
+    public static final String CLASS_SEALED_BARREL = "mods.tfc.sealed_barrel";
+    public static final String CLASS_WELDING = "mods.tfc.welding";
+
     public static final String BRACKET_METAL = "metal";
     public static final String BRACKET_ENUM_CHISEL = "tfc:chisel_mode";
     public static final String BRACKET_ENUM_FORGE_RULES = "tfc:forge_rule";
