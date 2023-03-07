@@ -49,11 +49,27 @@ public class ExpandMetal {
         return "<metal:" + internal.getId().toString().toLowerCase(Locale.ROOT) + ">";
     }
 
+    /**
+     * get a fluidstack from a metal
+     * @param internal metal
+     * @param amount amount
+     * @return
+     *
+     * @docParam amount 100
+     */
     @ZenCodeType.Method
     public static IFluidStack getFluidStack(Metal internal, int amount) {
         return new MCFluidStack(new FluidStack(internal.getFluid(), amount));
     }
 
+    /**
+     * get a metal part
+     * @param internal internal metal
+     * @param partName metal part name
+     * @return
+     *
+     * @docParam partName "ingot"
+     */
     @ZenCodeType.Method
     public static IItemStack getMetalPart(Metal internal, String partName) {
         String finalName = "%s:metal/%s/%s".formatted(internal.getId().getNamespace(), partName, internal.getId().getPath());

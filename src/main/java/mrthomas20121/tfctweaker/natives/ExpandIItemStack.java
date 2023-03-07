@@ -21,6 +21,8 @@ public class ExpandIItemStack {
      * @param self this
      * @param trait the trait registry name
      * @return this
+     *
+     * @docParam trait "salted"
      */
     @ZenCodeType.Method
     public static IItemStack applyFoodTrait(IItemStack self, String trait) {
