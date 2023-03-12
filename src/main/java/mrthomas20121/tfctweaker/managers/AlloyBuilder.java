@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 @ZenRegister
 @ZenCodeType.Name(Constants.CLASS_ALLOY_BUILDER)
 @Document("mods/TFCTweaker/AlloyBuilder")
-class AlloyBuilder {
+public class AlloyBuilder {
     private final Map<Metal, AlloyRecipe.Range> metals = new HashMap<Metal, AlloyRecipe.Range>();
 
     private Supplier<Metal> output;
