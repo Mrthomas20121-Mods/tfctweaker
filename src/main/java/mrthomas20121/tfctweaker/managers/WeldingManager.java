@@ -40,6 +40,7 @@ public class WeldingManager implements IRecipeManager<WeldingRecipe> {
      * @docParam input2 <item:tfc:metal/double_ingot/copper>
      * @docParam tier 1
      * @docParam output ItemStackProvider.none(<item:tfc:metal/double_sheet/copper>);
+     * @docParam combineForgingBonus true
      */
     @ZenCodeType.Method
     public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output, boolean combineForgingBonus) {
