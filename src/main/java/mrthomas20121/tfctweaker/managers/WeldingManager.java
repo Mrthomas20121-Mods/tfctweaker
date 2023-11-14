@@ -39,10 +39,10 @@ public class WeldingManager implements IRecipeManager<WeldingRecipe> {
      * @docParam input1 <item:tfc:metal/ingot/copper>
      * @docParam input2 <item:tfc:metal/double_ingot/copper>
      * @docParam tier 1
-     * @docParam output <item:tfc:metal/double_sheet/copper>
+     * @docParam output ItemStackProvider.none(<item:tfc:metal/double_sheet/copper>);
      */
     @ZenCodeType.Method
-    public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output) {
-        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Constants.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.getInternal())));
+    public void addRecipe(String name, IIngredient input1, IIngredient input2, int tier, TFCItemStackProvider output, boolean combineForgingBonus) {
+        CraftTweakerAPI.apply(new ActionAddRecipe<>(this, new WeldingRecipe(Constants.identifier(name), input1.asVanillaIngredient(), input2.asVanillaIngredient(), tier, output.getInternal(), combineForgingBonus)));
     }
 }
